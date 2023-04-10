@@ -10,6 +10,9 @@ import { Container, Nav, Navbar, Form, DropdownButton, Dropdown, Button } from '
 import Axios  from 'axios'
 import jwt_decode from 'jwt-decode'
 import DJList from './components/DJ/DJList';
+import HallList from './components/Hall/HallList';
+import BuffetList from './components/Buffet/BuffetList'
+import HospitalityList from './components/Hospitality/HospitalitiesList'
 
 function App() {
   const [isAuth,setIsAuth] = useState(false)
@@ -87,11 +90,12 @@ function App() {
             >Home</NavLink>
             
             <Nav className="me-auto">
-              <Nav.Link href="#venue">Venue</Nav.Link>
+              <Nav.Link href="/hall">Venue</Nav.Link>
               <Nav.Link href="#decoration">Decoration</Nav.Link>
-              <Nav.Link href="#hospitality">Hospitality</Nav.Link>
               <Nav.Link href="/dj">DJ</Nav.Link>
-              <Nav.Link href="#florist">Florist</Nav.Link>
+              <Nav.Link href="/buffet">Buffet</Nav.Link>
+              <Nav.Link href="/Florist">Florist</Nav.Link>
+              <Nav.Link href="/Hospitality">Hospitalities</Nav.Link>
             </Nav>
             <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >SIGN UP</Button>
             <Button  style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >LOG IN </Button>
@@ -103,12 +107,9 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/signup" element={<Signup  register ={registerHandler} />} />
             <Route exact path="/dj" element={<DJList />} />
-
-            {/* <Route path="/venue" element={<Venue />} />
-            <Route path="/decoration" element={<Decoration />} />
-            <Route path="/hospitality" element={<Hospitality />} />
-            <Route path="/dj" element={<DJ />} />
-            <Route path="/florist" element={<Florist />} /> */}
+            <Route exact path="/hall" element={<HallList />} />
+            <Route exact path="/buffet" element={<BuffetList />} />
+            <Route exact path="/Hospitality" element={<HospitalityList />} />
           </Routes>
         </div>
       </BrowserRouter>
