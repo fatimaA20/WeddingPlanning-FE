@@ -4,7 +4,7 @@ import Signin from './user/Signin'
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
-import { BrowserRouter, Link, NavLink, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, NavLink, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Nav, Navbar, Form, DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import Axios  from 'axios'
@@ -44,6 +44,7 @@ function App() {
 
   // cred = credantial / user info
   const loginHandler =(cred) => {
+
     Axios.post("auth/signin" ,cred)
 
     .then (res => {
