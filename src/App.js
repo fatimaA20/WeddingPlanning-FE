@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Nav, Navbar, Form, DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import Axios  from 'axios'
 import jwt_decode from 'jwt-decode'
+import DJList from './components/DJ/DJList';
 
 function App() {
   const [isAuth,setIsAuth] = useState(false)
@@ -89,17 +90,20 @@ function App() {
               <Nav.Link href="#venue">Venue</Nav.Link>
               <Nav.Link href="#decoration">Decoration</Nav.Link>
               <Nav.Link href="#hospitality">Hospitality</Nav.Link>
-              <Nav.Link href="#dj">DJ</Nav.Link>
+              <Nav.Link href="/dj">DJ</Nav.Link>
               <Nav.Link href="#florist">Florist</Nav.Link>
             </Nav>
             <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >SIGN UP</Button>
             <Button  style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >LOG IN </Button>
+
           </Container>
         </Navbar>
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/signup" element={<Signup  register ={registerHandler} />} />
+            <Route exact path="/dj" element={<DJList />} />
+
             {/* <Route path="/venue" element={<Venue />} />
             <Route path="/decoration" element={<Decoration />} />
             <Route path="/hospitality" element={<Hospitality />} />
