@@ -92,14 +92,13 @@ function App() {
               <Nav.Link href="#florist">Florist</Nav.Link>
             </Nav>
             <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >SIGN UP</Button>
-            <Button href = "/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >LOG IN </Button>
+            <Button  style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >LOG IN </Button>
           </Container>
         </Navbar>
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/signup" element={<Signup  register ={registerHandler} />} />
-            <Route exact path="/signin" element={<Signin login ={loginHandler}/>} />
             {/* <Route path="/venue" element={<Venue />} />
             <Route path="/decoration" element={<Decoration />} />
             <Route path="/hospitality" element={<Hospitality />} />
