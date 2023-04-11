@@ -1,6 +1,6 @@
-import React, { useState , useEffect} from 'react'
-import Signup from './user/Signup'
-import Signin from './user/Signin'
+import React, { useState , useEffect} from 'react';
+import Signup from './user/Signup';
+import Signin from './user/Signin';
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
@@ -14,9 +14,11 @@ import HallList from './components/Hall/HallList';
 import BuffetList from './components/Buffet/BuffetList'
 import HospitalityList from './components/Hospitality/HospitalitiesList'
 
+
 function App() {
   const [isAuth,setIsAuth] = useState(false)
   const [user , setUser ] = useState({});
+
 
 
   // this part is used to save token until after refresh page 
@@ -90,7 +92,7 @@ function App() {
             >Home</NavLink>
             
             <Nav className="me-auto">
-              <Nav.Link href="/hall">Venue</Nav.Link>
+              <Nav.Link href="/hall">Vanue</Nav.Link>
               <Nav.Link href="#decoration">Decoration</Nav.Link>
               <Nav.Link href="/dj">DJ</Nav.Link>
               <Nav.Link href="/buffet">Buffet</Nav.Link>
@@ -98,7 +100,7 @@ function App() {
               <Nav.Link href="/Hospitality">Hospitalities</Nav.Link>
             </Nav>
             <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >SIGN UP</Button>
-            <Button  style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >LOG IN </Button>
+            <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >LOG IN </Button>
 
           </Container>
         </Navbar>
@@ -106,6 +108,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/signup" element={<Signup  register ={registerHandler} />} />
+            <Route exact path="/signin" element={<Signin  login ={loginHandler} />} />
             <Route exact path="/dj" element={<DJList />} />
             <Route exact path="/hall" element={<HallList />} />
             <Route exact path="/buffet" element={<BuffetList />} />

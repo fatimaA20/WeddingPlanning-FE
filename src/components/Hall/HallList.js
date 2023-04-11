@@ -23,24 +23,23 @@ export default function HallList() {
   };
 
   const allHalls = halls.map((hall, index) => (
-    <tr key={index}>
-      <Hall {...hall} />
-    </tr>
+    <div className="col-md-4 mb-3" key={hall.id}>
+    <Hall
+      name={hall.name}
+      size={hall.type}
+      availableDate={hall.availableDate}
+      price={hall.price}
+      image={hall.image}
+    />
+  </div>
   ));
 
   return (
     <div>
-      <h1>Hall List</h1>
+      <h1  className="text-center font-weight-bold" style={{fontFamily: "Arial", color: "#200", marginTop: "50px"}}>VANUE</h1>
       <div>
         <table>
           <tbody>
-            <tr>
-              <th>Name</th>
-              <th>size</th>
-              <th>availableDate</th>
-              <th>Price</th>
-              <th>Image</th>
-            </tr>
             {allHalls}
           </tbody>
         </table>
