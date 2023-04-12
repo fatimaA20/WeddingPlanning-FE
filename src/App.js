@@ -4,8 +4,7 @@ import Signin from './user/Signin';
 import Logout from './user/Logout';
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link , useNavigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Nav, Navbar, Form, DropdownButton, Dropdown, Button, ButtonGroup, Offcanvas } from 'react-bootstrap';
 import Axios from 'axios'
@@ -22,7 +21,7 @@ import Booking from './components/Booking/BookingPage'
 function App() {
   const [isAuth, setIsAuth] = useState(false)
   const [user, setUser] = useState({});
-
+  // const navigate = useNavigate()
 
 
 
@@ -71,12 +70,14 @@ function App() {
           let user = jwt_decode(token)
           setIsAuth(true)
           setUser(user)
+          // navigate('/')
         }
 
       })
       .catch(err => {
         console.log(err)
         setIsAuth(false)
+        // navigate('/signin')
       })
   }
 
@@ -126,13 +127,19 @@ function App() {
           </Navbar.Collapse>
           {isAuth ?
             <div className="signin-signup-buttons">
-              <Button style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" onClick={onLogoutHandler}>LOG OUT </Button>
+              <Button style={{ backgroundColor: "#7EABA6", 
+              fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} 
+              variant="dark" className="mx-2" onClick={onLogoutHandler}>LOG OUT </Button>
             </div>
               :
           <div className="signin-signup-buttons">
-            <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >SIGN UP</Button>
+            <Button href="/signup" style={{ backgroundColor: "#7EABA6",
+             fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} 
+             variant="dark" className="mx-2" >SIGN UP</Button>
             <br></br>
-            <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >SIGN IN </Button>
+            <Button href="/signin" style={{ backgroundColor: "#7EABA6",
+             fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} 
+             variant="dark" className="mx-2" >SIGN IN </Button>
           </div>
             }
         </Navbar>
