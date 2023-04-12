@@ -25,7 +25,7 @@ export default function BuffetList() {
     }
 
     const allBuffets =  buffets.map((buffet, index) => (
-        <div className="col-md-3 mb-3" key={buffet.id}>
+        <div key={buffet.id}>
         <Buffet
           restaurantName={buffet.restaurantName}
           type={buffet.type}
@@ -40,7 +40,7 @@ export default function BuffetList() {
     return (
         <div>
           <div className="row">
-          <h1  className="text-center font-weight-bold" style={{fontFamily: "Arial", color: "#200", marginTop: "50px"}}>BUFFET</h1>
+          {/* <h1  className="text-center font-weight-bold" style={{fontFamily: "Arial", color: "#200", marginTop: "50px"}}>BUFFET</h1> */}
             <div className="row">
               {allBuffets}
             </div>

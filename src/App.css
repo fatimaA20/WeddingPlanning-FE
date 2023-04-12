@@ -1,7 +1,20 @@
-.nav-link {
-    text-decoration: none;
-  }
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #7EABA6 !important;
+}
 
-  .nav-link:hover {
-    color: #ccc; /* darkened color */
-  }
+
+.navbar-toggle {
+  position: relative;
+  z-index: 2;
+}
+
+.signin-signup-buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-right: 20px;
+}
