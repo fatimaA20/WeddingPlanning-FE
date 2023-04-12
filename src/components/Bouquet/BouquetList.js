@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Bouquet from "./bouquet";
-import { Image } from 'react-bootstrap';
-import BouquetEditForm from "./BouquetEditForm";
 import BouquetCreateForm from "./BouquetCreateForm";
+import BouquetEditForm from "./BouquetEditForm"
+import { Image } from 'react-bootstrap';
+
+
 
 export default function BouquetList() {
 
   const [Bouquets, setBouquets] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [currentBouquet, setCurrentBouquet] = useState("")
-
   const [bookedBouquetId, setBookedBouquetId] = useState(null);
   const navigate = useNavigate()
 
@@ -40,19 +41,8 @@ export default function BouquetList() {
 
   const handleNextClick = () =>{
     console.log(bookedBouquetId)
-    navigate(`/dj`)
+    navigate(`/Booking`)
   }
-
-  const allBouquets = Bouquets.map((bouquet, index) => (
-    <div className="col-md-3 mb-3" key={index}>
-      <Bouquet
-{...bouquet}
-        editView={editView}
-        deleteView={deleteBouquet}
-
-      />
-    </div>
-  ))
   
   const editView = (id) => {
     Axios.get(`Bouquet/edit?id=${id}`)
@@ -106,7 +96,18 @@ export default function BouquetList() {
         console.log(err)
       })
   }
+  const allBouquets = Bouquets.map((bouquet, index) => (
+    <div className="col-md-3 mb-3" key={index}>
+      <Bouquet
+        {...bouquet}
+        id = {bouquet._id}
+        editView={editView}
+        deleteView={deleteBouquet}
+        onBooked = {handleBouquetBooking}
 
+      />
+    </div>
+  ))
 
   return (
     <div>

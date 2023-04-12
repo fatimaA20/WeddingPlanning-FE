@@ -100,7 +100,7 @@ function App() {
     { id: 7, text: 'DJ', link: '/dj' },
     { id: 8, text: 'Studio', link: '/Studio' },
     { id: 9, text: 'Security', link: '/Security' },
-    { id: 10, text: 'Booking', link: '/Booking' },
+    // { id: 10, text: 'Booking', link: '/Booking' },
 
 
   ];
@@ -167,12 +167,16 @@ function App() {
           <Route exact path="/logout" element={<Logout logout={onLogoutHandler} />} />
           <Route exact path="/dj" element={<DJList />} />
           <Route exact path="/hall" element={<HallList />} />
+
           <Route exact path="/buffet" element={<BuffetList />} />
           <Route exact path="/Hospitality" element={<HospitalityList />} />
           <Route exact path="/Security" element={<SecurityList />} />
           <Route exact path="/Arrangement" element={<ArrangementList />} />
           <Route exact path="/Studio" element={<StudioList />} />
           <Route exact path="/Bouquet" element={<BouquetList />} />
+            <Route exact path="/Booking" element={<Booking />} />
+
+
         </Routes>
 
       </BrowserRouter>
