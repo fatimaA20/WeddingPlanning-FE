@@ -17,7 +17,8 @@ export default function Signin(props) {
     }
   return (
     <div>
-    <h1>Login</h1>
+      <br></br>
+    <h1>LOGIN</h1>
 
     <Container>
 
@@ -30,7 +31,7 @@ export default function Signin(props) {
         <Form.Label>Password</Form.Label>
         <Form.Control name="password" type="password" onChange={ChangeHandler}></Form.Control>
         </Form.Group>
-
+<br></br>
         <Button varient="primary" onClick={SignInHandler}> Login </Button>
 
     </Container>
