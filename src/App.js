@@ -82,6 +82,7 @@ function App() {
     setUser(null)
   }
 
+
   // const [showMenu, setShowMenu] = useState(false);
 
   // function handleMenuToggle() {
@@ -127,6 +128,7 @@ function App() {
   //   </div>
   // );  
   // }
+
   const [showMenu, setShowMenu] = useState(false);
   const menuItems = [
     { id: 1, text: 'Home', link: '/' },
@@ -147,7 +149,9 @@ function App() {
     <>
       <BrowserRouter>
       <Navbar bg="light" expand="lg">
-  <Navbar.Brand href="/">Planning Wedding</Navbar.Brand>
+
+  <Navbar.Brand href="/" className="lead" style={{fontFamily:"Verdana", color:"#7EABA6", font:"lead", margin:"10px", padding:"10px"}}> EVER AFTER </Navbar.Brand>
+
   <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleShowMenu} className="navbar-toggle"/>
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="ml-auto">
@@ -161,7 +165,12 @@ function App() {
 
   <div className="signin-signup-buttons">
   <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >SIGN UP</Button>
-        <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >LOG IN </Button>
+
+  {/* </div>
+  <div className="signin-signup-buttons"> */}
+  <br></br>
+  <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >SIGN IN </Button>
+
   </div>
 
 </Navbar>
@@ -184,6 +193,18 @@ function App() {
         {/* <Navbar style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold" }} variant="dark">
           <Container>
             <Nav className="me-auto">
+
+            <ButtonGroup className="mb-2">
+            <Button href="/" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Home</Button>
+            <Button href="/hall" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Vanue</Button>
+            <Button href="/decoration" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Decoration</Button>
+            <Button href="/dj" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">DJ</Button>
+            <Button href="/buffet" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Buffet</Button>
+            <Button href="/Florist" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Florist</Button>
+            <Button href="/Hospitality" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Hospitality</Button>
+            </ButtonGroup>
+            </Nav>
+
 
               <Nav.Link href="/hall">Vanue</Nav.Link>
               <Nav.Link href="/Arrangement">Decoration</Nav.Link>
@@ -210,6 +231,7 @@ function App() {
             </Nav>
 here is the buttons for signin / signout
 
+
           </Container>
         </Navbar>  */}
 
@@ -218,6 +240,8 @@ here is the buttons for signin / signout
             <Route exact path="/signup" element={<Signup  register ={registerHandler} />} />
             <Route exact path="/signin" element={<Signin  login ={loginHandler} />} />
             <Route exact path="/dj" element={<DJList />} />
+            {/* <Route exact path="/decor" element={<DecorList />} />
+            <Route exact path="/florist" element={<FloristList />} /> */}
             <Route exact path="/hall" element={<HallList />} />
             {/* <Route exact path="/bookings" element={<BookingPage />} /> */}
 
@@ -231,6 +255,7 @@ here is the buttons for signin / signout
             <Route exact path="/Arrangement" element={<ArrangementList />} />
             <Route exact path="/Studio" element={<StudioList />} />
             <Route exact path="/Bouquet" element={<BouquetList />} />
+
           </Routes>
 
       </BrowserRouter>
