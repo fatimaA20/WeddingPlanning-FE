@@ -13,7 +13,7 @@ import DJList from './components/DJ/DJList';
 import HallList from './components/Hall/HallList';
 import BuffetList from './components/Buffet/BuffetList'
 import HospitalityList from './components/Hospitality/HospitalitiesList'
-import SecurityList from './components/Security/securityList';
+import SecurityList from './components/Security/SecurityList';
 import ArrangementList from './components/Arrangement/ArrangementList';
 import StudioList from './components/Studio/StudioList';
 import BouquetList from './components/Bouquet/BouquetList';
@@ -135,7 +135,7 @@ function App() {
     { id: 4, text: 'Decoration', link: '/Arrangement' },
     { id: 5, text: 'DJ', link: '/dj' },
     { id: 6, text: 'Florist', link: '/Bouquet' },
-    { id: 7, text: 'Hospitality', link: '/Hospitality' },
+    { id: 7, text: 'Hospitality', link: '/hospitality' },
     { id: 8, text: 'Studio', link: '/Studio' },
     { id: 9, text: 'Security', link: '/Security' },
   

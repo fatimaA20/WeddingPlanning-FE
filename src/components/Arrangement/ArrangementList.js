@@ -5,27 +5,27 @@ import { Image } from 'react-bootstrap';
 
 export default function ArrangementList() {
 
-    const [arrangements, setArrangements] = useState([]);
+    const [Arrangements, setArrangements] = useState([]);
 
     useEffect(() => {
         loadArrangementsList();
     }, []);
     
     const loadArrangementsList = () => {
-        Axios.get("arrangement/index")
+        Axios.get("Arrangement/index")
         .then((response) => {
           console.log(response)
           // State to store the data
-          setArrangements(response.data.arrangements)
+          setArrangements(response.data.Arrangements)
         })
         .catch((err) => {
-          console.log("Error Retrieving arrangements")
+          console.log("Error Retrieving Arrangements")
           console.log(err)
         })
     }
 
-    const allArrangements =  arrangements.map((arrangement, index) => (
-        <div className="col-md-3 mb-3" key={arrangement.id}>
+    const allArrangements =  Arrangements.map((arrangement, index) => (
+        <div className="col-md-3 mb-3" key={Arrangement.id}>
         <Arrangement
           type={arrangement.type}
           description={arrangement.description}
