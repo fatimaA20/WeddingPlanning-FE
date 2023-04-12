@@ -24,10 +24,6 @@ export default function () {
 
   };
 
-  const handleNextClick = () => {
-    console.log(bookedHallId)
-    navigate(`/buffet`)
-  }
 
   const loadHallsList = () => {
     Axios.get('hall/index')
@@ -96,6 +92,7 @@ export default function () {
         console.log("Error Adding Hall")
         console.log(err)
       })
+    }
 
   const handleNextClick = () =>{
     console.log(bookedHallId)

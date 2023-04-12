@@ -143,7 +143,7 @@ export default function BookingPage() {
 
       <p>Security Name: {securityDetails.name}</p>
       <p>Security Price: {securityDetails.price}</p>
-      {/* <button onClick={handleConfirm}> Confirm </button> */}
+      <button onClick={handleConfirm}> Confirm </button>
 </div>
 );
 }
