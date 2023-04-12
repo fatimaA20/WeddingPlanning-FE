@@ -1,10 +1,15 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Hall from './hall'
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 
-const HallList = ({ handleHallSelection, selectedHallId }) => {
+
+const HallList = (props) => {
   const [halls, setHalls] = useState([]);
+  const [bookedHallId, setBookedHallId] = useState(null);
 
+  const navigate = useNavigate()
+  
   useEffect(() => {
     loadHallsList();
   }, []);
@@ -21,29 +26,45 @@ const HallList = ({ handleHallSelection, selectedHallId }) => {
       });
   };
 
-  const handleNextClick = () => {
-    // Pass the selected hall ID to the parent component
-    handleHallSelection(selectedHallId);
+  const handleHallBooking = (hallId) => {
+    setBookedHallId(hallId);
+    
   };
 
+  const handleNextClick = () =>{
+    console.log(bookedHallId)
+    navigate(`/Arrangement`)
+  }
+
+
+  
   const hallList = halls.map((hall) => (
     <Hall
-      key={hall.id}
-      id={hall.id}
+      id={hall._id}
       name={hall.name}
       size={hall.type}
       availableDate={hall.availableDate}
       price={hall.price}
       image={hall.image}
-      selected={hall.id === selectedHallId}
+      onBooked={handleHallBooking}
     />
   ));
 
+  
+
+  
   return (
     <>
       <br></br>
               {hallList}
 
+              <button
+        // disabled={!selectedHallId}
+        variant="primary"
+        onClick={handleNextClick}
+      >
+        Next
+      </button>
         </>
   );
 };

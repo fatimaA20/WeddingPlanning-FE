@@ -1,8 +1,20 @@
-import React from 'react'
+import React , { useState, useEffect }from 'react'
 import { Card, Button, CardFootr, ListGroup } from 'react-bootstrap';
 import { BsPlus } from 'react-icons/bs';
+import jwt_decode from 'jwt-decode'
 
 export default function Hall(props) {
+
+  const [isBooked, setIsBooked] = useState(false);
+
+  const handleBooking = () => {
+    // Call a function to handle the booking here
+    console.log(`Booked hall ${props.id}`);
+    setIsBooked(true);
+    props.onBooked(props.id);
+    localStorage.setItem("Hall_id",props.id)
+  };
+
   return (
     <>
 
@@ -14,7 +26,10 @@ export default function Hall(props) {
               <div class="card-body">
                 <h5 class="card-title">{props.name}</h5>
                 <p class="card-text">Capacity: {props.size}, Price: {props.price}BD </p>
-                <a href="#" class="btn btn-light ">Book</a>
+                <a href="#" onClick={handleBooking} class={`btn ${isBooked ? 'btn-success' : 'btn-light'}`}disabled={isBooked}>
+            {isBooked ? 'Booked' : 'Book'}
+            Book</a>
+           
               </div>
             </div>
           </div>
