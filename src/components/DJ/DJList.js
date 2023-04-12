@@ -18,7 +18,7 @@ export default function DJList() {
           setDjs(response.data.djs)
         })
         .catch((err) => {
-          console.log("Error Retreiving djs")
+          console.log("Error Retrieving djs")
           console.log(err)
         })
     }

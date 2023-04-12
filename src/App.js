@@ -13,7 +13,10 @@ import DJList from './components/DJ/DJList';
 import HallList from './components/Hall/HallList';
 import BuffetList from './components/Buffet/BuffetList'
 import HospitalityList from './components/Hospitality/HospitalitiesList'
-
+import SecurityList from './components/Security/SecurityList';
+import ArrangementList from './components/Arrangement/ArrangementList';
+import StudioList from './components/Studio/StudioList';
+import BouquetList from './components/Bouquet/BouquetList';
 
 function App() {
   const [isAuth,setIsAuth] = useState(false)
@@ -93,15 +96,21 @@ function App() {
             
             <Nav className="me-auto">
               <Nav.Link href="/hall">Vanue</Nav.Link>
-              <Nav.Link href="#decoration">Decoration</Nav.Link>
+
+
+              <Nav.Link href="/Arrangement">Decoration</Nav.Link>
+              <Nav.Link href="/Bouquet">Florist</Nav.Link>
+              
+
+              <Nav.Link href="/Security">Security</Nav.Link>
               <Nav.Link href="/dj">DJ</Nav.Link>
               <Nav.Link href="/buffet">Buffet</Nav.Link>
-              <Nav.Link href="/Florist">Florist</Nav.Link>
               <Nav.Link href="/Hospitality">Hospitalities</Nav.Link>
+              <Nav.Link href="/Studio">Studio</Nav.Link>
             </Nav>
             <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >SIGN UP</Button>
             <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >LOG IN </Button>
-
+            <Button href="/logout" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >LOGOUT </Button>
           </Container>
         </Navbar>
         <div className="container">
@@ -113,6 +122,10 @@ function App() {
             <Route exact path="/hall" element={<HallList />} />
             <Route exact path="/buffet" element={<BuffetList />} />
             <Route exact path="/Hospitality" element={<HospitalityList />} />
+            <Route exact path="/Security" element={<SecurityList />} />
+            <Route exact path="/Arrangement" element={<ArrangementList />} />
+            <Route exact path="/Studio" element={<StudioList />} />
+            <Route exact path="/Bouquet" element={<BouquetList />} />
           </Routes>
         </div>
       </BrowserRouter>
