@@ -98,7 +98,7 @@ function App() {
     { id: 7, text: 'DJ', link: '/dj' },
     { id: 8, text: 'Studio', link: '/Studio' },
     { id: 9, text: 'Security', link: '/Security' },
-    { id: 10, text: 'Booking', link: '/Booking' },
+    // { id: 10, text: 'Booking', link: '/Booking' },
 
   
   ];
@@ -165,7 +165,7 @@ function App() {
             <Route exact path="/Arrangement" element={<ArrangementList />} />
             <Route exact path="/Studio" element={<StudioList />} />
             <Route exact path="/Bouquet" element={<BouquetList />} />
-            {/* <Route exact path="/Booking" element={<Booking />} /> */}
+            <Route exact path="/Booking" element={<Booking />} />
 
 
         </Routes>
