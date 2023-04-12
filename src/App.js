@@ -17,8 +17,7 @@ import SecurityList from './components/Security/securityList';
 import ArrangementList from './components/Arrangement/ArrangementList';
 import StudioList from './components/Studio/StudioList';
 import BouquetList from './components/Bouquet/BouquetList';
-import Home from './components/Home'
-
+import Booking from './components/Booking/BookingPage'
 function App() {
   const [isAuth, setIsAuth] = useState(false)
   const [user, setUser] = useState({});
@@ -99,7 +98,9 @@ function App() {
     { id: 7, text: 'Hospitality', link: '/hospitality' },
     { id: 8, text: 'Studio', link: '/Studio' },
     { id: 9, text: 'Security', link: '/Security' },
+    { id: 10, text: 'Booking', link: '/Booking' },
 
+  
   ];
   const handleCloseMenu = () => setShowMenu(false);
   const handleShowMenu = () => setShowMenu(true);
@@ -152,13 +153,20 @@ function App() {
           <Route exact path="/signin"element={<Signin login={loginHandler}/>}/>
           <Route exact path="/dj" element={<DJList />} />
           <Route exact path="/hall" element={<HallList />} />
-       
-          <Route exact path="/buffet" element={<BuffetList />} />
-          <Route exact path="/Hospitality" element={<HospitalityList />} />
-          <Route exact path="/Security" element={<SecurityList />} />
-          <Route exact path="/Arrangement" element={<ArrangementList />} />
-          <Route exact path="/Studio" element={<StudioList />} />
-          <Route exact path="/Bouquet" element={<BouquetList />} />
+          {/* <Route exact path="/bookings" element={<BookingPage />} /> */}
+
+          {/* <Route path="/hall" element={<HallPage />} />
+            <Route path="/hall/:hallId/arrangement" element={<ArrangementPage />} />
+            <Route path="/hall/:hallId/arrangement/:arrangementId/buffet" element={<BuffetPage />} />
+             */}
+            <Route exact path="/buffet" element={<BuffetList />} />
+            <Route exact path="/Hospitality" element={<HospitalityList />} />
+            <Route exact path="/Security" element={<SecurityList />} />
+            <Route exact path="/Arrangement" element={<ArrangementList />} />
+            <Route exact path="/Studio" element={<StudioList />} />
+            <Route exact path="/Bouquet" element={<BouquetList />} />
+            <Route exact path="/Booking" element={<Booking />} />
+
 
         </Routes>
 

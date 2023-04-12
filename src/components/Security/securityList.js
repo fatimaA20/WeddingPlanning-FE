@@ -24,6 +24,7 @@ export default function SecurityList() {
   const allSecurity = Securities.map((item) => (
     <Security
       key={item._id}
+      
       name={item.name}
       description={item.description}
       noOfSecurity={item.noOfSecurity}
