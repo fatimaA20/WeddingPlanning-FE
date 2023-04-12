@@ -39,7 +39,7 @@ const HallList = (props) => {
 
   
   const hallList = halls.map((hall) => (
-    <Hall
+    <Hall style={{float: "left"}}
       id={hall._id}
       name={hall.name}
       size={hall.type}

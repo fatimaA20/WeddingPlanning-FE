@@ -38,7 +38,7 @@ export default function DJList() {
     }
 
     const allDjs =  djs.map((dj, index) => (
-      <div key={dj.id}>
+      <div key={dj.id}  style={{ float: 'left', margin:"10px" }}>
             <Dj {...dj}/>
        </div>
     ))
@@ -46,9 +46,10 @@ export default function DJList() {
 <div>
   <br></br>
                     {allDjs}
-                    <div className="container d-flex justify-content-between">
-        <button type="button" class="btn btn-dark" onClick={handleNextClick} >Next &rarr;</button>
-      </div>
+                    <br></br>
+                    <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
+  <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
+</div>
     </div>
   )
 }
