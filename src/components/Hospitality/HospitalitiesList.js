@@ -34,11 +34,16 @@ export default function HospitalityList() {
 
   const handleNextClick = () =>{
     console.log(bookedHospitalitiesId)
-    navigate(`/Arrangement`)
+    navigate(`/dj`)
   }
 
   const allHospitalities = hospitalities && hospitalities.length > 0 && hospitalities.map((hospitality, index) => (
-    <Hospitality {...hospitality} key={index} />
+    <Hospitality 
+    {...hospitality} 
+    key={index} 
+    id = {hospitality._id}
+    onBooked={handleHospitalitiesBooking}
+    />
   ))
 
 

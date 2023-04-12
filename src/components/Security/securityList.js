@@ -31,17 +31,18 @@ export default function SecurityList() {
 
   const handleNextClick = () =>{
     console.log(bookedSecurityId)
-    navigate(`/Home`)
+    navigate(`/Bouquet`)
   }
   const allSecurity = Securities.map((item) => (
     <Security
       key={item._id}
-      
+      id = {item._id}
       name={item.name}
       description={item.description}
       noOfSecurity={item.noOfSecurity}
       price={item.price}
       image={item.image}
+      onBooked = {handleStecurityBooking}
     />
   ));
 
