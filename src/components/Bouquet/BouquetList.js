@@ -13,7 +13,6 @@ export default function BouquetList() {
   const [Bouquets, setBouquets] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [currentBouquet, setCurrentBouquet] = useState("")
-
   const [bookedBouquetId, setBookedBouquetId] = useState(null);
   const navigate = useNavigate()
 
@@ -42,10 +41,8 @@ export default function BouquetList() {
 
   const handleNextClick = () =>{
     console.log(bookedBouquetId)
-    navigate(`/dj`)
+    navigate(`/Booking`)
   }
-
-
   
   const editView = (id) => {
     Axios.get(`Bouquet/edit?id=${id}`)
@@ -99,13 +96,14 @@ export default function BouquetList() {
         console.log(err)
       })
   }
-
   const allBouquets = Bouquets.map((bouquet, index) => (
     <div className="col-md-3 mb-3" key={index}>
       <Bouquet
-{...bouquet}
+        {...bouquet}
+        id = {bouquet._id}
         editView={editView}
         deleteView={deleteBouquet}
+        onBooked = {handleBouquetBooking}
 
       />
     </div>

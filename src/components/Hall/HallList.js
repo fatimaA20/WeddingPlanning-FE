@@ -96,6 +96,10 @@ export default function () {
         console.log("Error Adding Hall")
         console.log(err)
       })
+
+  const handleNextClick = () =>{
+    console.log(bookedHallId)
+    navigate(`/Arrangement`)
   }
 
 

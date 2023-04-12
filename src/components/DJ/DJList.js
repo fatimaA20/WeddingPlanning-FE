@@ -39,7 +39,10 @@ export default function DJList() {
 
     const allDjs =  djs.map((dj, index) => (
       <div key={dj.id}>
-            <Dj {...dj}/>
+            <Dj {...dj}
+            id = {dj._id}
+            onBooked={handleDjBooking}
+            />
        </div>
     ))
   return (
