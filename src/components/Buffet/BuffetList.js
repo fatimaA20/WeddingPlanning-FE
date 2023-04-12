@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Buffet from "./buffet";
 import { Image } from 'react-bootstrap';
 import BuffetEditForm from "../Buffet/BuffetEditForm";
 import BuffetCreateForm from "../Buffet/BuffetCreateForm";
-import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 
 export default function BuffetList() {
   const [Buffets, setBuffets] = useState([]);

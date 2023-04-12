@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useState, useEffect }from 'react'
 import { Card } from 'react-bootstrap';
 const cardsData = [
   {
@@ -13,7 +13,14 @@ const cardsData = [
 
 
 export default function Dj(props) {
-
+const [isBooked, setIsBooked] = useState(false);
+const handleBooking = () => {
+  // Call a function to handle the booking here
+  console.log(`Booked dj ${props.id}`);
+  setIsBooked(true);
+  props.onBooked(props.id);
+  localStorage.setItem("Dj_id",props.id)
+};
   return (
     <>
   
@@ -23,6 +30,9 @@ export default function Dj(props) {
           <h5 className="card-title">{props.name}</h5>
           <p className="card-text">Hours: {props.noOfHours} H, Price: {props.price} BD </p>
           <p className="card-text"><small className="text-muted" style={{ color: "white" }}>Last updated 3 mins ago</small></p>
+          <a href="#" variant="light" onClick={handleBooking} class={`btn ${isBooked ? 'btn-success' : 'btn-light'}`} disabled={isBooked} style={{position: "relative", bottom: "0", width: "100%", fontSize: "1.2rem"}}>
+  {isBooked ? 'Booked' : 'Book'}
+</a>
         </div>
       </div>
 

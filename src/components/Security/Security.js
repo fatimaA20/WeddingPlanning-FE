@@ -1,6 +1,16 @@
-import React from 'react'
+import React , { useState, useEffect }from 'react'
+
+
 
 export default function Security(props) {
+  const [isBooked, setIsBooked] = useState(false);
+const handleBooking = () => {
+  // Call a function to handle the booking here
+  console.log(`Booked security ${props.id}`);
+  setIsBooked(true);
+  props.onBooked(props.id);
+  localStorage.setItem("Security_id",props.id)
+};
   return (
     <>
 
@@ -12,7 +22,9 @@ export default function Security(props) {
         <div class="card-body">
           <h5 class="card-title">{props.name}</h5>
           <p class="card-text">{props.description}, with a number of security: {props.noOfSecurity}</p>
-          <a href="#" class="btn btn-light ">Book</a>
+          <a href="#" variant="light" onClick={handleBooking} class={`btn ${isBooked ? 'btn-success' : 'btn-light'}`} disabled={isBooked} style={{position: "relative", bottom: "0", width: "100%", fontSize: "1.2rem"}}>
+  {isBooked ? 'Booked' : 'Book'}
+</a>
         </div>
       </div>
     </div>

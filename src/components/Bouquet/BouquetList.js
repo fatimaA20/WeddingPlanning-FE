@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Bouquet from "./bouquet";
 import { Image } from 'react-bootstrap';
@@ -11,6 +12,8 @@ export default function BouquetList() {
   const [isEdit, setIsEdit] = useState(false);
   const [currentBouquet, setCurrentBouquet] = useState("")
 
+  const [bookedBouquetId, setBookedBouquetId] = useState(null);
+  const navigate = useNavigate()
 
   useEffect(() => {
     loadBouquetsList();
@@ -27,6 +30,17 @@ export default function BouquetList() {
         console.log("Error Retrieving Bouquets")
         console.log(err)
       })
+  }
+
+
+  const handleBouquetBooking = (bouquetId) => {
+    setBookedBouquetId(bouquetId);
+    
+  };
+
+  const handleNextClick = () =>{
+    console.log(bookedBouquetId)
+    navigate(`/dj`)
   }
 
   const allBouquets = Bouquets.map((bouquet, index) => (
@@ -99,9 +113,10 @@ export default function BouquetList() {
       <br></br>
       {allBouquets}
 
-      <div className="container d-flex justify-content-between">
-        <button type="button" class="btn btn-dark" >Next &rarr;</button>
-      </div>
+     
+      <div className="container position-fixed left-0 ">
+  <button type="button" class="btn btn-dark" onClick={handleNextClick}>Next &rarr;</button>
+</div>
 
       {(!isEdit) ?
 

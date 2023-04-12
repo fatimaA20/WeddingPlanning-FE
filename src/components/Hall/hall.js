@@ -26,9 +26,9 @@ export default function Hall(props) {
               <div class="card-body">
                 <h5 class="card-title">{props.name}</h5>
                 <p class="card-text">Capacity: {props.size}, Price: {props.price}BD </p>
-                <a href="#" onClick={handleBooking} class={`btn ${isBooked ? 'btn-success' : 'btn-light'}`}disabled={isBooked}>
-            {isBooked ? 'Booked' : 'Book'}
-            Book</a>
+                <a href="#" variant="light" onClick={handleBooking} class={`btn ${isBooked ? 'btn-success' : 'btn-light'}`} disabled={isBooked} style={{position: "relative", bottom: "0", width: "100%", fontSize: "1.2rem"}}>
+  {isBooked ? 'Booked' : 'Book'}
+</a>
            
               </div>
             </div>
