@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Buffet from "./buffet";
 import { Image } from 'react-bootstrap';
@@ -6,7 +7,8 @@ import { Image } from 'react-bootstrap';
 export default function BuffetList() {
 
     const [buffets, setBuffets] = useState([]);
-
+    const [bookedBuffetId, setBookedBuffetId] = useState(null);
+    const navigate = useNavigate()
     useEffect(() => {
         loadBuffetsList();
     }, []);
@@ -23,6 +25,17 @@ export default function BuffetList() {
           console.log(err)
         })
     }
+
+    const handleBuffetBooking = (buffetId) => {
+      setBookedBuffetId(buffetId);
+      
+    };
+  
+    const handleNextClick = () =>{
+      console.log(bookedBuffetId)
+      navigate(`/hospitality`)
+    }
+  
 
     const allBuffets =  buffets.map((buffet, index) => (
         <div key={buffet.id}>

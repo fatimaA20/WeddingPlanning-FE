@@ -1,10 +1,19 @@
-import React from 'react'
+import React , { useState, useEffect }from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, ListGroup } from 'react-bootstrap';
 import { BsPlus } from 'react-icons/bs';
 
 
 export default function Buffet(props) {
+  const [isBooked, setIsBooked] = useState(false);
+
+  const handleBooking = () => {
+    // Call a function to handle the booking here
+    console.log(`Booked buffet ${props.id}`);
+    setIsBooked(true);
+    props.onBooked(props.id);
+    localStorage.setItem("Buffet_id",props.id)
+  };
   return (
     
       <>
@@ -27,9 +36,9 @@ export default function Buffet(props) {
                 </ListGroup>
                 <Card.Body>
                   <Card.Text>
-                    <Card.Link href="#" className="ml-auto" style={{textDecoration:"none"}}>Book
-                      <BsPlus />
-                    </Card.Link>
+                  <a href="#" variant="light" onClick={handleBooking} class={`btn ${isBooked ? 'btn-success' : 'btn-light'}`} disabled={isBooked} style={{position: "relative", bottom: "0", width: "100%", fontSize: "1.2rem"}}>
+  {isBooked ? 'Booked' : 'Book'}
+</a>
                   </Card.Text>
                 </Card.Body>
               </Card>

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Axios from "axios";
 import Studio from "./Studio";
 
 export default function StudioList() {
   const [studios, setStudios] = useState([]);
+  const [bookedStudioId, setBookedStudioId] = useState(null);
+  const navigate = useNavigate()
 
   useEffect(() => {
     loadStudioList();
@@ -22,6 +25,17 @@ export default function StudioList() {
       });
   };
 
+
+  const handleStudioBooking = (studioId) => {
+    setBookedStudioId(studioId);
+    
+  };
+
+  const handleNextClick = () =>{
+    console.log(bookedStudioId)
+    navigate(`/security`)
+  }
+
   const allStudios = studios.map((studio, index) => (
     <tr key={index}>
       <Studio {...studio} />
@@ -32,6 +46,9 @@ export default function StudioList() {
     <div>
       <br></br>
             {allStudios}
+            <div className="container d-flex justify-content-between">
+        <button type="button" class="btn btn-dark" onClick={handleNextClick} >Next &rarr;</button>
+      </div>
     
     </div>
   );

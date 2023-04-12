@@ -1,6 +1,15 @@
-import React from 'react'
+import React , { useState, useEffect }from 'react'
 
 export default function Hospitality(props) {
+  const [isBooked, setIsBooked] = useState(false);
+const handleBooking = () => {
+  // Call a function to handle the booking here
+  console.log(`Booked hospitality ${props.id}`);
+  setIsBooked(true);
+  props.onBooked(props.id);
+  localStorage.setItem("Hospitality_id",props.id)
+};
+
   return (
     <div>
       
@@ -13,7 +22,9 @@ export default function Hospitality(props) {
                 <h5 class="card-title">{props.name}</h5>
                 <p class="card-text">{props.description}</p>
                 <p class="card-text"> Price: {props.price}BD </p>
-                <a href="#" class="btn btn-light ">Book</a>
+                <a href="#" variant="light" onClick={handleBooking} class={`btn ${isBooked ? 'btn-success' : 'btn-light'}`} disabled={isBooked} style={{position: "relative", bottom: "0", width: "100%", fontSize: "1.2rem"}}>
+  {isBooked ? 'Booked' : 'Book'}
+</a>
               </div>
             </div>
           </div>

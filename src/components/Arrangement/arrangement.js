@@ -31,11 +31,9 @@ export default function Arrangement(props) {
       </ListGroup>
       <Card.Body>
         <Card.Text>
-        <Card.Link href="#" onClick={handleBooking} class={`btn ${isBooked ? 'btn-success' : 'btn-light'}`}disabled={isBooked}>
-            {isBooked ? 'Booked' : 'Book'}
-            Book
-                      <BsPlus />
-                    </Card.Link>
+        <a href="#" variant="light" onClick={handleBooking} class={`btn ${isBooked ? 'btn-success' : 'btn-light'}`} disabled={isBooked} style={{position: "relative", bottom: "0", width: "100%", fontSize: "1.2rem"}}>
+  {isBooked ? 'Booked' : 'Book'}
+</a>
         </Card.Text>
       </Card.Body>
     </Card>

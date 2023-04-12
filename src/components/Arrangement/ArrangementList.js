@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Arrangement from "./arrangement";
 import { Image } from 'react-bootstrap';
@@ -11,6 +12,9 @@ export default function ArrangementList() {
   const [Arrangements, setArrangements] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [currentArrangement, setCurrentArrangement] = useState("")
+  const [bookedArrangementId, setBookedArrangementId] = useState(null);
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     loadArrangementsList();
@@ -28,6 +32,17 @@ export default function ArrangementList() {
         console.log(err)
       })
   }
+
+  const handleArrangementBooking = (arrangementId) => {
+    setBookedArrangementId(arrangementId);
+    
+  };
+
+  const handleNextClick = () =>{
+    console.log(bookedArrangementId)
+    navigate(`/bouquet`)
+  }
+
   const editView = (id) => {
     Axios.get(`Arrangement/edit?id=${id}`)
       .then(res => {
@@ -99,7 +114,12 @@ export default function ArrangementList() {
         <h1 className="text-center font-weight-bold" style={{ fontFamily: "Arial", color: "#200", marginTop: "50px" }}>Arrangement</h1>
         <div className="row">
           {allArrangements}
-
+          <div className="container d-flex justify-content-between">
+          <div className="container d-flex justify-content-between">
+        <button type="button" class="btn btn-dark" onClick={handleNextClick} >Next &rarr;</button>
+      </div>
+      </div>
+    
         </div>
       </div>
 

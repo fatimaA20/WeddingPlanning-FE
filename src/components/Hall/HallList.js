@@ -33,7 +33,7 @@ const HallList = (props) => {
 
   const handleNextClick = () =>{
     console.log(bookedHallId)
-    navigate(`/Arrangement`)
+    navigate(`/buffet`)
   }
 
 
@@ -57,14 +57,11 @@ const HallList = (props) => {
     <>
       <br></br>
               {hallList}
-
-              <button
-        // disabled={!selectedHallId}
-        variant="primary"
-        onClick={handleNextClick}
-      >
-        Next
-      </button>
+<br></br>
+        <div className="container d-flex justify-content-between">
+        <button type="button" class="btn btn-dark" onClick={handleNextClick} >Next &rarr;</button>
+      </div>
+   
         </>
   );
 };

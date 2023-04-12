@@ -1,10 +1,14 @@
 import React,{useState,useEffect} from "react";
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
+
 import Axios from 'axios'
 import Dj from "./dj";
 
 export default function DJList() {
 
     const [djs, setDjs] = useState([]);
+    const [bookedDjId, setBookedDjId] = useState(null);
+    const navigate = useNavigate()
 
     useEffect(() => {
         loadDJsList()
@@ -23,7 +27,15 @@ export default function DJList() {
         })
     }
 
-    
+    const handleDjBooking = (djId) => {
+      setBookedDjId(djId);
+      
+    };
+  
+    const handleNextClick = () =>{
+      console.log(bookedDjId)
+      navigate(`/Studio`)
+    }
 
     const allDjs =  djs.map((dj, index) => (
       <div key={dj.id}>
@@ -34,6 +46,9 @@ export default function DJList() {
 <div>
   <br></br>
                     {allDjs}
+                    <div className="container d-flex justify-content-between">
+        <button type="button" class="btn btn-dark" onClick={handleNextClick} >Next &rarr;</button>
+      </div>
     </div>
   )
 }

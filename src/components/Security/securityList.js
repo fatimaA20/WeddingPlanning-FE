@@ -1,9 +1,12 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Security from "./Security";
 
 export default function SecurityList() {
   const [Securities, setSecurities] = useState([]);
+  const [bookedSecurityId, setBookedSecurityId] = useState(null);
+  const navigate = useNavigate()
 
   useEffect(() => {
     loadSecurity();
@@ -21,6 +24,15 @@ export default function SecurityList() {
       });
   };
 
+  const handleStecurityBooking = (securityId) => {
+    setBookedSecurityId(securityId);
+    
+  };
+
+  const handleNextClick = () =>{
+    console.log(bookedSecurityId)
+    navigate(`/Home`)
+  }
   const allSecurity = Securities.map((item) => (
     <Security
       key={item._id}
@@ -37,6 +49,9 @@ export default function SecurityList() {
     <>
       <br></br>
               {allSecurity}
+              <div className="container d-flex justify-content-between">
+        <button type="button" class="btn btn-dark" onClick={handleNextClick} >Next &rarr;</button>
+      </div>
 
         </>
   );

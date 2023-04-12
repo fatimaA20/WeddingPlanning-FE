@@ -92,10 +92,10 @@ function App() {
     { id: 1, text: 'Home', link: '/' },
     { id: 2, text: 'Vanue', link: '/hall' },
     { id: 3, text: 'Buffet', link: '/buffet' },
-    { id: 4, text: 'Decoration', link: '/Arrangement' },
-    { id: 5, text: 'DJ', link: '/dj' },
+    { id: 4, text: 'Hospitality', link: '/hospitality' },
+    { id: 5, text: 'Decoration', link: '/Arrangement' },
     { id: 6, text: 'Florist', link: '/Bouquet' },
-    { id: 7, text: 'Hospitality', link: '/hospitality' },
+    { id: 7, text: 'DJ', link: '/dj' },
     { id: 8, text: 'Studio', link: '/Studio' },
     { id: 9, text: 'Security', link: '/Security' },
     { id: 10, text: 'Booking', link: '/Booking' },
@@ -165,7 +165,7 @@ function App() {
             <Route exact path="/Arrangement" element={<ArrangementList />} />
             <Route exact path="/Studio" element={<StudioList />} />
             <Route exact path="/Bouquet" element={<BouquetList />} />
-            <Route exact path="/Booking" element={<Booking />} />
+            {/* <Route exact path="/Booking" element={<Booking />} /> */}
 
 
         </Routes>
