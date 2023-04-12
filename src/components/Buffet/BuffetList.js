@@ -2,21 +2,17 @@ import React, { useState, useEffect } from "react";
 import Axios from 'axios';
 import Buffet from "./buffet";
 import { Image } from 'react-bootstrap';
-
 import BuffetEditForm from "../Buffet/BuffetEditForm";
 import BuffetCreateForm from "../Buffet/BuffetCreateForm";
-
 import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 
-
-
 export default function BuffetList() {
-
-
   const [Buffets, setBuffets] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [currentBuffet, setCurrentBuffet] = useState("")
+  const [bookedBuffetId, setbookedBuffetId] = useState(null);
 
+  const navigate = useNavigate()
 
   useEffect(() => {
     loadBuffetsList();
@@ -34,11 +30,6 @@ export default function BuffetList() {
         console.log(err)
       })
   }
-
-    const [bookedBuffetId, setbookedBuffetId] = useState(null);
-
-    const navigate = useNavigate()
-
 
   const editView = (id) => {
     Axios.get(`buffet/edit?id=${id}`)
@@ -81,7 +72,6 @@ export default function BuffetList() {
         console.log(err)
       })
   }
-
   const addBuffet = (buffet) => {
     Axios.post("buffet/add", buffet)
       .then(res => {
@@ -94,77 +84,40 @@ export default function BuffetList() {
       })
   }
 
-
+  const handleBuffetBooking = (BuffetId) => {
+    setbookedBuffetId(BuffetId);
+  };
+  
   const allBuffets = Buffets.map((buffet, index) => (
-    <div key={index}>
+    <div key ={index}>
       <Buffet
         {...buffet}
+        id = {buffet._id}
         editView={editView}
         deleteView={deleteBuffet}
+        onBooked={handleBuffetBooking}
       />
-    </div>
+      </div>
+
   ))
 
-  return (
-    <div>
-      <br></br>
-      {allBuffets}
-
-      {(!isEdit) ?
-
-        <BuffetCreateForm addBuffet={addBuffet} />
-        :
-        <BuffetEditForm key={currentBuffet._id} buffet={currentBuffet} editBuffet={editBuffet} />
-
-      }
-      <button>next</button>
-    </div>
-  );
-
-    }, []);
     
-    const loadBuffetsList = () => {
-        Axios.get("buffet/index")
-        .then((response) => {
-          console.log(response)
-          // State to store the data
-          setBuffets(response.data.buffets)
-        })
-        .catch((err) => {
-          console.log("Error Retreiving buffets")
-          console.log(err)
-        })
-    }
-
-    const handleBuffetBooking = (hallId) => {
-      setbookedBuffetId(hallId);
-      
-    };
-  
     const handleNextClick = () =>{
       console.log(bookedBuffetId)
-      navigate(`/Arrangement`)
+      navigate(`/hospitality`)
     }
-
-    const allBuffets =  buffets.map((buffet, index) => (
-        <div key={buffet.id}>
-        <Buffet
-        id = {buffet._id}
-          restaurantName={buffet.restaurantName}
-          type={buffet.type}
-          description={buffet.description}
-          noOfGuests={buffet.noOfGuests}
-          price={buffet.price}
-          image={buffet.image}
-          onBooked={handleBuffetBooking}
-        />
-      </div>
-    ))
-
     return (
         <div>
     <br></br>
               {allBuffets}
+
+              {(!isEdit) ?
+
+<BuffetCreateForm addBuffet={addBuffet} />
+:
+<BuffetEditForm key={currentBuffet._id} buffet={currentBuffet} editBuffet={editBuffet} />
+
+}
               <button
         // disabled={!selectedHallId}
         variant="primary"
@@ -173,5 +126,5 @@ export default function BuffetList() {
         Next
       </button>
         </div>
-      );
+      )
 }

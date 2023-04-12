@@ -33,7 +33,7 @@ const HallList = (props) => {
 
   const handleNextClick = () =>{
     console.log(bookedHallId)
-    navigate(`/buffet`)
+    navigate(`/Arrangement`)
   }
 
 

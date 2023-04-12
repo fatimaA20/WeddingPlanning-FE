@@ -102,8 +102,6 @@ export default function BouquetList() {
       <div className="container d-flex justify-content-between">
         <button type="button" class="btn btn-dark" >Next &rarr;</button>
       </div>
-    </div>
-
 
       {(!isEdit) ?
 

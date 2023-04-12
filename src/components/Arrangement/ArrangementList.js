@@ -93,7 +93,7 @@ export default function ArrangementList() {
   };
   const handleNextClick = () =>{
     console.log(bookedArrangementId)
-    navigate(`/hospitality`)
+    navigate(`/buffet`)
   }
 
 
