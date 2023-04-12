@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import Hospitality from "./Hospitality";
+import Hospitality from "./hospitality";
 
 export default function HospitalityList() {
   const [hospitalities, setHospitalities] = useState([]);
@@ -29,20 +29,9 @@ export default function HospitalityList() {
 
   return (
     <div>
-      <h1>Hospitality List</h1>
+      {/* <h1>Hospitality List</h1> */}
       <div>
-        <table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Image</th>
-            </tr>
             {allHospitalities}
-          </tbody>
-        </table>
       </div>
     </div>
   );

@@ -79,60 +79,16 @@ function App() {
     setUser(null)
   }
 
-  // const [showMenu, setShowMenu] = useState(false);
 
-  // function handleMenuToggle() {
-  //   setShowMenu((prevShowMenu) => !prevShowMenu);
-  // }
-  
-  // return (
-  //   <div>
-  //     <BrowserRouter>
-  //       <header style={{ zIndex: 1 }}>
-  //         <div className="logo"> EVER AFTER WEDDING PLANNER </div>
-  //         <div className={`toggle ${showMenu ? 'active' : ''}`} onClick={handleMenuToggle} />
-        
-  //       </header>
-  //       <div className={`showcase ${showMenu ? 'active' : ''}`}>
-  //         {showMenu && (
-  //           <nav>
-            
-  //                 <Link to="/">Home</Link>
-  //                 <Link to="/hall">Vanue</Link>
-  //                 <Link to="/dj">DJ </Link>
-  //                 <Link to="/buffet">Buffet </Link>
-  //                 <Link to="/Hospitality">Hospitality </Link>
-  //                 <br></br>
-  //                 <br></br>
-  //                 <Link to="/signup">Signup</Link>
-  //                 <Link to="/signin">Signin</Link>
-          
-  //           </nav>
-  //         )}
-   
-  //       </div>
-  //       <Routes>
-  //           <Route exact path="/" element={<Home />} />
-  //           <Route exact path="/signup" element={<Signup  register ={registerHandler} />} />
-  //           <Route exact path="/signin" element={<Signin  login ={loginHandler} />} />
-  //           <Route exact path="/dj" element={<DJList />} />
-  //           <Route exact path="/hall" element={<HallList />} />
-  //           <Route exact path="/buffet" element={<BuffetList />} />
-  //           <Route exact path="/Hospitality" element={<HospitalityList />} />
-  //         </Routes>
-  //     </BrowserRouter>
-  //   </div>
-  // );  
-  // }
   const [showMenu, setShowMenu] = useState(false);
   const menuItems = [
     { id: 1, text: 'Home', link: '/' },
     { id: 2, text: 'Vanue', link: '/hall' },
     { id: 3, text: 'Buffet', link: '/buffet' },
-    { id: 4, text: 'Decoration', link: '/decoration' },
+    { id: 4, text: 'Decoration', link: '/decor' },
     { id: 5, text: 'DJ', link: '/dj' },
     { id: 6, text: 'Florist', link: '/florist' },
-    { id: 7, text: 'Hospitality', link: '/hospitality' },
+    { id: 7, text: 'Hospitality', link: '/hospitalities' },
   
   ];
   
@@ -142,7 +98,7 @@ function App() {
     <>
       <BrowserRouter>
       <Navbar bg="light" expand="lg">
-  <Navbar.Brand href="/">Planning Wedding</Navbar.Brand>
+  <Navbar.Brand href="/" className="lead" style={{fontFamily:"Verdana", color:"#7EABA6", font:"lead", margin:"10px", padding:"10px"}}> EVER AFTER </Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleShowMenu} className="navbar-toggle"/>
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="ml-auto">
@@ -156,7 +112,10 @@ function App() {
 
   <div className="signin-signup-buttons">
   <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >SIGN UP</Button>
-        <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >LOG IN </Button>
+  {/* </div>
+  <div className="signin-signup-buttons"> */}
+  <br></br>
+  <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >SIGN IN </Button>
   </div>
 
 </Navbar>
@@ -198,9 +157,11 @@ here is the buttons for signin / signout
             <Route exact path="/signup" element={<Signup  register ={registerHandler} />} />
             <Route exact path="/signin" element={<Signin  login ={loginHandler} />} />
             <Route exact path="/dj" element={<DJList />} />
+            {/* <Route exact path="/decor" element={<DecorList />} />
+            <Route exact path="/florist" element={<FloristList />} /> */}
             <Route exact path="/hall" element={<HallList />} />
             <Route exact path="/buffet" element={<BuffetList />} />
-            <Route exact path="/Hospitality" element={<HospitalityList />} />
+            <Route exact path="/hospitalities" element={<HospitalityList />} />
           </Routes>
 
       </BrowserRouter>

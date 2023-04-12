@@ -18,7 +18,8 @@ export default function Signup(props) {
     }
   return (
     <div>
-        <h1>Sign Up</h1>
+        <br></br>
+        <h1>CREAT ACCOUNT </h1>
 
         <Container>
 
@@ -41,6 +42,7 @@ export default function Signup(props) {
             <Form.Label>Password</Form.Label>
             <Form.Control name="password" type="password" onChange={ChangeHandler}></Form.Control>
             </Form.Group>
+            <br></br>
 
             <Button varient="primary" onClick={registerHandler}> Register </Button>
 
