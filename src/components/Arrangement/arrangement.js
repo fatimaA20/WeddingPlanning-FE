@@ -26,6 +26,8 @@ export default function Arrangement(props) {
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item>Price: {props.price} BD</ListGroup.Item>
+        <button onClick={()=> {props.editView(props._id)}}>Edit</button>
+        <button onClick={()=> props.deleteView(props._id)}>Delete</button>
       </ListGroup>
       <Card.Body>
         <Card.Text>
