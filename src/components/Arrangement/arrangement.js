@@ -22,9 +22,9 @@ export default function Arrangement(props) {
       </ListGroup>
       <Card.Body>
         <Card.Text>
-          <Card.Link href="#" className="ml-auto">
-            <BsPlus /> 
-          </Card.Link>
+        <Card.Link href="#" className="ml-auto" style={{textDecoration:"none"}}>Book
+                      <BsPlus />
+                    </Card.Link>
         </Card.Text>
       </Card.Body>
     </Card>

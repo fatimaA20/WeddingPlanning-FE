@@ -30,6 +30,7 @@ export default function DJList() {
     ))
   return (
 <div>
+  <br></br>
                     {allDjs}
     </div>
   )

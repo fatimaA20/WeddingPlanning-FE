@@ -14,7 +14,7 @@ export default function HospitalityList() {
       .then((response) => {
         console.log(response);
         // State to store the data
-        setHospitalities(response.data.hospitalities);
+        setHospitalities(response.data.hospitality);
       })
       .catch((err) => {
         console.log("Error Retreiving hospitalities");
@@ -23,27 +23,15 @@ export default function HospitalityList() {
   };
 
   const allHospitalities = hospitalities && hospitalities.length > 0 && hospitalities.map((hospitality, index) => (
-    <Hospitality {...hospitality} key={index}/>
+    <Hospitality {...hospitality} key={index} />
   ))
-  
+
 
   return (
     <div>
-      <h1>Hospitality List</h1>
-      <div>
-        <table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Image</th>
-            </tr>
-            {allHospitalities}
-          </tbody>
-        </table>
-      </div>
+      <br></br>
+        {allHospitalities}
+    
     </div>
   );
 }

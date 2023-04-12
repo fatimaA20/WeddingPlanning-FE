@@ -18,12 +18,14 @@ export default function Bouquet(props) {
       <ListGroup className="list-group-flush">
         <ListGroup.Item>Color: {props.color}</ListGroup.Item>
         <ListGroup.Item>Price: {props.price} BD</ListGroup.Item>
+        <button onClick={()=> {props.editView(props._id)}}>Edit</button>
+        <button onClick={()=> props.deleteView(props._id)}>Delete</button>
       </ListGroup>
       <Card.Body>
         <Card.Text>
-          <Card.Link href="#" className="ml-auto">
-            <BsPlus /> 
-          </Card.Link>
+        <Card.Link href="#" className="ml-auto" style={{textDecoration:"none"}}>Book
+                      <BsPlus />
+                    </Card.Link>
         </Card.Text>
       </Card.Body>
     </Card>
