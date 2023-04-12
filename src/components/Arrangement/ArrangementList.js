@@ -49,6 +49,7 @@ export default function ArrangementList() {
         console.log("Arrangement Updated Successfully!!!")
         console.log(res)
         loadArrangementsList();
+
       })
       .catch(err => {
         console.log("Error Editing Arrangement")
