@@ -103,10 +103,9 @@ export default function () {
   }
 
 
-
   const allHalls = Halls.map((hall, index) => (
     <div className="col-md-3 mb-3" key={index}>
-      <Hall
+      <Hall style={{float: "left"}}
         id={hall._id}
         name={hall.name}
         size={hall.size}

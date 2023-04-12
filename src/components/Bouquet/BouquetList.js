@@ -115,8 +115,8 @@ export default function BouquetList() {
       {allBouquets}
 
      
-      <div className="container position-fixed left-0 ">
-  <button type="button" class="btn btn-dark" onClick={handleNextClick}>Next &rarr;</button>
+      <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
+  <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
 </div>
 
       {(!isEdit) ?
@@ -126,7 +126,7 @@ export default function BouquetList() {
         <BouquetEditForm key={currentBouquet._id} bouquet={currentBouquet} editBouquet={editBouquet} />
 
       }
-      <button>next</button>
+
     </div>
 
   );

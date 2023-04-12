@@ -118,11 +118,10 @@ export default function ArrangementList() {
         <h1 className="text-center font-weight-bold" style={{ fontFamily: "Arial", color: "#200", marginTop: "50px" }}>Arrangement</h1>
         <div className="row">
           {allArrangements}
-          <div className="container d-flex justify-content-between">
-          <div className="container d-flex justify-content-between">
-        <button type="button" class="btn btn-dark" onClick={handleNextClick} >Next &rarr;</button>
-      </div>
-      </div>
+
+          <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
+  <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
+</div>
     
         </div>
       </div>

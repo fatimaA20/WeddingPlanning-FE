@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Signup from './user/Signup';
 import Signin from './user/Signin';
+import Logout from './user/Logout';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
@@ -29,7 +30,7 @@ function App() {
   // this part is used to save token until after refresh page 
   useEffect(() => {
     let token = localStorage.getItem("token")
-    if (token ) {
+    if (token) {
       let user = jwt_decode(token)
 
       if (user) {
@@ -54,7 +55,7 @@ function App() {
         console.log(err)
       })
   }
- 
+
 
   // cred = credantial / user info
   const loginHandler = (cred) => {
@@ -71,7 +72,7 @@ function App() {
           setIsAuth(true)
           setUser(user)
         }
-        
+
       })
       .catch(err => {
         console.log(err)
@@ -100,10 +101,11 @@ function App() {
     { id: 9, text: 'Security', link: '/Security' },
     // { id: 10, text: 'Booking', link: '/Booking' },
 
-  
+
   ];
   const handleCloseMenu = () => setShowMenu(false);
   const handleShowMenu = () => setShowMenu(true);
+
 
   return (
     <>
@@ -122,13 +124,17 @@ function App() {
               ))}
             </Nav>
           </Navbar.Collapse>
-
+          {isAuth ?
+            <div className="signin-signup-buttons">
+              <Button style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" onClick={onLogoutHandler}>LOG OUT </Button>
+            </div>
+              :
           <div className="signin-signup-buttons">
             <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >SIGN UP</Button>
             <br></br>
             <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >SIGN IN </Button>
           </div>
-
+            }
         </Navbar>
 
         <Offcanvas show={showMenu} onHide={handleCloseMenu} placement="start">
@@ -148,23 +154,19 @@ function App() {
 
 
         <Routes>
-          <Route exact path="/"element= {<DJList/> }/>
+          <Route exact path="/" element={<DJList />} />
           <Route exact path="/signup" element={<Signup register={registerHandler} />} />
-          <Route exact path="/signin"element={<Signin login={loginHandler}/>}/>
+          <Route exact path="/signin" element={<Signin login={loginHandler} />} />
+          <Route exact path="/logout" element={<Logout logout={onLogoutHandler} />} />
           <Route exact path="/dj" element={<DJList />} />
           <Route exact path="/hall" element={<HallList />} />
-          {/* <Route exact path="/bookings" element={<BookingPage />} /> */}
 
-          {/* <Route path="/hall" element={<HallPage />} />
-            <Route path="/hall/:hallId/arrangement" element={<ArrangementPage />} />
-            <Route path="/hall/:hallId/arrangement/:arrangementId/buffet" element={<BuffetPage />} />
-             */}
-            <Route exact path="/buffet" element={<BuffetList />} />
-            <Route exact path="/Hospitality" element={<HospitalityList />} />
-            <Route exact path="/Security" element={<SecurityList />} />
-            <Route exact path="/Arrangement" element={<ArrangementList />} />
-            <Route exact path="/Studio" element={<StudioList />} />
-            <Route exact path="/Bouquet" element={<BouquetList />} />
+          <Route exact path="/buffet" element={<BuffetList />} />
+          <Route exact path="/Hospitality" element={<HospitalityList />} />
+          <Route exact path="/Security" element={<SecurityList />} />
+          <Route exact path="/Arrangement" element={<ArrangementList />} />
+          <Route exact path="/Studio" element={<StudioList />} />
+          <Route exact path="/Bouquet" element={<BouquetList />} />
             <Route exact path="/Booking" element={<Booking />} />
 
 

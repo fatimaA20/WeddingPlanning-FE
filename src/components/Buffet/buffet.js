@@ -20,7 +20,7 @@ export default function Buffet(props) {
         <div className='container'>
           <div className='row'>
             <div className='col-md-3'>
-              <Card style={{ width: '18rem', left: "50px", display: "center" }}>
+              <Card style={{ width: '18rem', left: "50px",  float: "left" }}>
                 <Card.Img variant="top" src="https://media.istockphoto.com/id/650655146/photo/catering-food-wedding-event-table.jpg?s=612x612&w=0&k=20&c=ATGYgW8bM_559jJ5aUNO4HlJqpkOWUmNNMMflx5kajo=" />
                 <Card.Body>
                   <Card.Title>{props.restaurantName}</Card.Title>

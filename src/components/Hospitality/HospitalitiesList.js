@@ -37,23 +37,33 @@ export default function HospitalityList() {
     navigate(`/dj`)
   }
 
-  const allHospitalities = hospitalities && hospitalities.length > 0 && hospitalities.map((hospitality, index) => (
-    <Hospitality 
-    {...hospitality} 
-    key={index} 
-    id = {hospitality._id}
+
+  const allHospitalities = hospitalities && hospitalities.length > 0 && (
+    <div >
+      {hospitalities.map((hospitality, index) => (
+        <div key={index} style={{ padding: '1px', display:'absolute', float:"left" }}>
+          <Hospitality {...hospitality} 
+              id = {hospitality._id}
     onBooked={handleHospitalitiesBooking}
     />
-  ))
-
+        </div>
+      ))}
+    </div>
+  );
+  
+  
 
   return (
-    <div>
+    <>
       <br></br>
         {allHospitalities}
-        <div className="container d-flex justify-content-between">
-        <button type="button" class="btn btn-dark" onClick={handleNextClick} >Next &rarr;</button>
-      </div>
-    </div>
+        <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
+  <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
+</div>
+
+<br></br>
+<h1></h1>
+
+    </>
   );
 }

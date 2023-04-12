@@ -96,19 +96,20 @@ export default function BuffetList() {
       navigate(`/hospitality`)
     }  
     const allBuffets = Buffets.map((buffet, index) => (
-    <div key ={index}>
+    <div key ={index} style={{ float: 'left' }}>
       <Buffet
         {...buffet}
-        id = {buffet._id}
-        editView={editView}
+        id={buffet._id}
         deleteView={deleteBuffet}
+        editView={editView}
         onBooked={handleBuffetBooking}
       />
-      </div>
+    </div>
+  ));
 
-  ))
+
     return (
-        <div>
+       <>
     <br></br>
               {allBuffets}
 
@@ -119,13 +120,10 @@ export default function BuffetList() {
 <BuffetEditForm key={currentBuffet._id} buffet={currentBuffet} editBuffet={editBuffet} />
 
 }
-              <button
-        // disabled={!selectedHallId}
-        variant="primary"
-        onClick={handleNextClick}
-      >
-        Next
-      </button>
-        </div>
+<div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
+  <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
+</div>
+
+        </>
       )
 }
