@@ -5,6 +5,8 @@ import Arrangement from "./arrangement";
 import { Image } from 'react-bootstrap';
 import ArrangementEditForm from "./ArrangementEditForm";
 import ArrangementCreateForm from "./ArrangementCreateForm";
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
+
 
 
 export default function ArrangementList() {
@@ -12,9 +14,6 @@ export default function ArrangementList() {
   const [Arrangements, setArrangements] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [currentArrangement, setCurrentArrangement] = useState("")
-  const [bookedArrangementId, setBookedArrangementId] = useState(null);
-  const navigate = useNavigate()
-
 
   useEffect(() => {
     loadArrangementsList();
@@ -96,12 +95,25 @@ export default function ArrangementList() {
         console.log(err)
       })
   }
+
+  const handleArrangementBooking = (ArrangementId) => {
+    setBookedArrangementId(ArrangementId);
+    
+  };
+  const handleNextClick = () =>{
+    console.log(bookedArrangementId)
+    navigate(`/buffet`)
+  }
+
+
   const allArrangements = Arrangements.map((arrangement, index) => (
     <div className="col-md-3 mb-3" key={index}>
       <Arrangement
         {...arrangement}
         editView={editView}
         deleteView={deleteArrangement} // change this to deleteView
+        onBooked={handleArrangementBooking}
+        id = {arrangement._id}
       />
     </div>
   ))

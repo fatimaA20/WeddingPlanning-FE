@@ -1,4 +1,5 @@
 import React , { useState, useEffect }from 'react'
+import React , { useState, useEffect }from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, ListGroup } from 'react-bootstrap';
 import { BsPlus } from 'react-icons/bs';
@@ -15,8 +16,7 @@ export default function Buffet(props) {
     localStorage.setItem("Buffet_id",props.id)
   };
   return (
-    
-      <>
+    <>
 
         <div className='container'>
           <div className='row'>
@@ -33,6 +33,8 @@ export default function Buffet(props) {
                   <ListGroup.Item>Type: {props.type}</ListGroup.Item>
                   <ListGroup.Item>Number of Guests: {props.noOfGuests}</ListGroup.Item>
                   <ListGroup.Item>Price: {props.price} BD</ListGroup.Item>
+                  <button onClick={() => { props.editView(props._id) }}>Edit</button>
+                <button onClick={() => props.deleteView(props._id)}>Delete</button>
                 </ListGroup>
                 <Card.Body>
                   <Card.Text>
@@ -44,11 +46,14 @@ export default function Buffet(props) {
               </Card>
 <br></br>
 
-</div>
-</div>
-</div>
+
+    
+          </div>
+        </div>
+      </div>
 
 
-            </>
-            );
-}
+    </>
+  );
+
+  }
