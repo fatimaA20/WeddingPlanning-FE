@@ -1,5 +1,4 @@
 import React , { useState, useEffect }from 'react'
-import React , { useState, useEffect }from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, ListGroup } from 'react-bootstrap';
 import { BsPlus } from 'react-icons/bs';
