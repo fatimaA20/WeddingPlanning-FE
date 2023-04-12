@@ -4,9 +4,9 @@ import Signin from './user/Signin';
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
-import { BrowserRouter, NavLink, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Nav, Navbar, Form, DropdownButton, Dropdown, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar, Form, DropdownButton, Dropdown, Button, ButtonGroup, Offcanvas } from 'react-bootstrap';
 import Axios  from 'axios'
 import jwt_decode from 'jwt-decode'
 import DJList from './components/DJ/DJList';
@@ -79,32 +79,120 @@ function App() {
     setUser(null)
   }
 
+  // const [showMenu, setShowMenu] = useState(false);
+
+  // function handleMenuToggle() {
+  //   setShowMenu((prevShowMenu) => !prevShowMenu);
+  // }
+  
+  // return (
+  //   <div>
+  //     <BrowserRouter>
+  //       <header style={{ zIndex: 1 }}>
+  //         <div className="logo"> EVER AFTER WEDDING PLANNER </div>
+  //         <div className={`toggle ${showMenu ? 'active' : ''}`} onClick={handleMenuToggle} />
+        
+  //       </header>
+  //       <div className={`showcase ${showMenu ? 'active' : ''}`}>
+  //         {showMenu && (
+  //           <nav>
+            
+  //                 <Link to="/">Home</Link>
+  //                 <Link to="/hall">Vanue</Link>
+  //                 <Link to="/dj">DJ </Link>
+  //                 <Link to="/buffet">Buffet </Link>
+  //                 <Link to="/Hospitality">Hospitality </Link>
+  //                 <br></br>
+  //                 <br></br>
+  //                 <Link to="/signup">Signup</Link>
+  //                 <Link to="/signin">Signin</Link>
+          
+  //           </nav>
+  //         )}
+   
+  //       </div>
+  //       <Routes>
+  //           <Route exact path="/" element={<Home />} />
+  //           <Route exact path="/signup" element={<Signup  register ={registerHandler} />} />
+  //           <Route exact path="/signin" element={<Signin  login ={loginHandler} />} />
+  //           <Route exact path="/dj" element={<DJList />} />
+  //           <Route exact path="/hall" element={<HallList />} />
+  //           <Route exact path="/buffet" element={<BuffetList />} />
+  //           <Route exact path="/Hospitality" element={<HospitalityList />} />
+  //         </Routes>
+  //     </BrowserRouter>
+  //   </div>
+  // );  
+  // }
+  const [showMenu, setShowMenu] = useState(false);
+  const menuItems = [
+    { id: 1, text: 'Home', link: '/' },
+    { id: 2, text: 'Vanue', link: '/hall' },
+    { id: 3, text: 'Buffet', link: '/buffet' },
+    { id: 4, text: 'Decoration', link: '/decoration' },
+    { id: 5, text: 'DJ', link: '/dj' },
+    { id: 6, text: 'Florist', link: '/florist' },
+    { id: 7, text: 'Hospitality', link: '/hospitality' },
+  
+  ];
+  
+  const handleCloseMenu = () => setShowMenu(false);
+  const handleShowMenu = () => setShowMenu(true);
   return (
     <>
       <BrowserRouter>
-        <Navbar style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold" }} variant="dark">
-          <Container>
-            <NavLink exact to="/" 
-            activeClassName="active" 
-            style={{color: 'white', fontFamily: "Verdana", fontWeight: "bold", textDecoration: 'none' }}
-            variant="dark"
-            activeStyle={{ color: '#ccc' }}
-            >Home</NavLink>
-            
-            <Nav className="me-auto">
-              <Nav.Link href="/hall">Vanue</Nav.Link>
-              <Nav.Link href="#decoration">Decoration</Nav.Link>
-              <Nav.Link href="/dj">DJ</Nav.Link>
-              <Nav.Link href="/buffet">Buffet</Nav.Link>
-              <Nav.Link href="/Florist">Florist</Nav.Link>
-              <Nav.Link href="/Hospitality">Hospitalities</Nav.Link>
-            </Nav>
-            <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >SIGN UP</Button>
-            <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >LOG IN </Button>
+      <Navbar bg="light" expand="lg">
+  <Navbar.Brand href="/">Planning Wedding</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleShowMenu} className="navbar-toggle"/>
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="ml-auto">
+      {menuItems.map((item) => (
+        <Nav.Link key={item.id} href={item.link}>
+          {item.text}
+        </Nav.Link>
+      ))}
+    </Nav>
+  </Navbar.Collapse>
 
+  <div className="signin-signup-buttons">
+  <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >SIGN UP</Button>
+        <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >LOG IN </Button>
+  </div>
+
+</Navbar>
+
+      <Offcanvas show={showMenu} onHide={handleCloseMenu} placement="start">
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Planning Items</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Nav className="flex-column">
+            {menuItems.map((item) => (
+              <Nav.Link key={item.id} href={item.link} onClick={handleCloseMenu}>
+                {item.text}
+              </Nav.Link>
+            ))}
+          </Nav>
+        </Offcanvas.Body>
+      </Offcanvas>
+
+        {/* <Navbar style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold" }} variant="dark">
+          <Container>
+            <Nav className="me-auto">
+            <ButtonGroup className="mb-2">
+            <Button href="/" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Home</Button>
+            <Button href="/hall" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Vanue</Button>
+            <Button href="/decoration" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Decoration</Button>
+            <Button href="/dj" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">DJ</Button>
+            <Button href="/buffet" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Buffet</Button>
+            <Button href="/Florist" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Florist</Button>
+            <Button href="/Hospitality" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Hospitality</Button>
+            </ButtonGroup>
+            </Nav>
+here is the buttons for signin / signout
           </Container>
-        </Navbar>
-        <div className="container">
+        </Navbar>  */}
+
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/signup" element={<Signup  register ={registerHandler} />} />
@@ -114,7 +202,7 @@ function App() {
             <Route exact path="/buffet" element={<BuffetList />} />
             <Route exact path="/Hospitality" element={<HospitalityList />} />
           </Routes>
-        </div>
+
       </BrowserRouter>
     </>
   );
