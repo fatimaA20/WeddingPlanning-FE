@@ -39,12 +39,9 @@ export default function BuffetList() {
 
     return (
         <div>
-          <div className="row">
-          {/* <h1  className="text-center font-weight-bold" style={{fontFamily: "Arial", color: "#200", marginTop: "50px"}}>BUFFET</h1> */}
-            <div className="row">
+    <br></br>
               {allBuffets}
-            </div>
-          </div>
+
         </div>
       );
 }

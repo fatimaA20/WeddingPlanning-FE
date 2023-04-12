@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Signup from './user/Signup';
 import Signin from './user/Signin';
 import logo from './logo.svg';
@@ -7,72 +7,72 @@ import Home from './components/Home';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Nav, Navbar, Form, DropdownButton, Dropdown, Button, ButtonGroup, Offcanvas } from 'react-bootstrap';
-import Axios  from 'axios'
+import Axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import DJList from './components/DJ/DJList';
 import HallList from './components/Hall/HallList';
 import BuffetList from './components/Buffet/BuffetList'
 import HospitalityList from './components/Hospitality/HospitalitiesList'
-import SecurityList from './components/Security/SecurityList';
+import SecurityList from './components/Security/securityList';
 import ArrangementList from './components/Arrangement/ArrangementList';
 import StudioList from './components/Studio/StudioList';
 import BouquetList from './components/Bouquet/BouquetList';
-
+import Booking from './components/Booking/BookingPage'
 function App() {
-  const [isAuth,setIsAuth] = useState(false)
-  const [user , setUser ] = useState({});
+  const [isAuth, setIsAuth] = useState(false)
+  const [user, setUser] = useState({});
 
 
 
   // this part is used to save token until after refresh page 
   useEffect(() => {
     let token = localStorage.getItem("token")
-    if (token ){
+    if (token) {
       let user = jwt_decode(token)
 
-      if (user){
+      if (user) {
         setIsAuth(true)
         setUser(user)
       }
-      else if (!user){
+      else if (!user) {
         localStorage.removeItem('token')
         setIsAuth(false)
       }
     }
   }, [])
-  
-  const registerHandler = (user) =>{
-    Axios.post("auth/signup" , user)
-    .then(res =>{
-      console.log(res)
-    })
-    .catch (err =>{
-      console.log(err)
-    })
+
+  const registerHandler = (user) => {
+    Axios.post("auth/signup", user)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   // cred = credantial / user info
-  const loginHandler =(cred) => {
+  const loginHandler = (cred) => {
 
-    Axios.post("auth/signin" ,cred)
+    Axios.post("auth/signin", cred)
 
-    .then (res => {
-      console.log(res.data.token)
-      // save the token into local storage
-      let token = res.data.token
-      // if(token)  .. this same as if(token != null)
-      if(token != null){
-        // "key" , value
-        localStorage.setItem("token",token)
-        let user = jwt_decode(token)
-        setIsAuth(true)
-        setUser(user)
-      }
-    })
-    .catch (err =>{
-      console.log(err)
-      setIsAuth(false)
-    })
+      .then(res => {
+        console.log(res.data.token)
+        // save the token into local storage
+        let token = res.data.token
+        // if(token)  .. this same as if(token != null)
+        if (token != null) {
+          // "key" , value
+          localStorage.setItem("token", token)
+          let user = jwt_decode(token)
+          setIsAuth(true)
+          setUser(user)
+        }
+      })
+      .catch(err => {
+        console.log(err)
+        setIsAuth(false)
+      })
   }
 
   const onLogoutHandler = (e) => {
@@ -82,24 +82,25 @@ function App() {
     setUser(null)
   }
 
+
   // const [showMenu, setShowMenu] = useState(false);
 
   // function handleMenuToggle() {
   //   setShowMenu((prevShowMenu) => !prevShowMenu);
   // }
-  
+
   // return (
   //   <div>
   //     <BrowserRouter>
   //       <header style={{ zIndex: 1 }}>
   //         <div className="logo"> EVER AFTER WEDDING PLANNER </div>
   //         <div className={`toggle ${showMenu ? 'active' : ''}`} onClick={handleMenuToggle} />
-        
+
   //       </header>
   //       <div className={`showcase ${showMenu ? 'active' : ''}`}>
   //         {showMenu && (
   //           <nav>
-            
+
   //                 <Link to="/">Home</Link>
   //                 <Link to="/hall">Vanue</Link>
   //                 <Link to="/dj">DJ </Link>
@@ -109,10 +110,10 @@ function App() {
   //                 <br></br>
   //                 <Link to="/signup">Signup</Link>
   //                 <Link to="/signin">Signin</Link>
-          
+
   //           </nav>
   //         )}
-   
+
   //       </div>
   //       <Routes>
   //           <Route exact path="/" element={<Home />} />
@@ -127,6 +128,7 @@ function App() {
   //   </div>
   // );  
   // }
+
   const [showMenu, setShowMenu] = useState(false);
   const menuItems = [
     { id: 1, text: 'Home', link: '/' },
@@ -138,52 +140,69 @@ function App() {
     { id: 7, text: 'Hospitality', link: '/hospitality' },
     { id: 8, text: 'Studio', link: '/Studio' },
     { id: 9, text: 'Security', link: '/Security' },
+    { id: 10, text: 'Booking', link: '/Booking' },
+
   
   ];
-  
+
   const handleCloseMenu = () => setShowMenu(false);
   const handleShowMenu = () => setShowMenu(true);
   return (
     <>
       <BrowserRouter>
-      <Navbar bg="light" expand="lg">
-  <Navbar.Brand href="/">Planning Wedding</Navbar.Brand>
-  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleShowMenu} className="navbar-toggle"/>
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="ml-auto">
-      {menuItems.map((item) => (
-        <Nav.Link key={item.id} href={item.link}>
-          {item.text}
-        </Nav.Link>
-      ))}
-    </Nav>
-  </Navbar.Collapse>
+        <Navbar bg="light" expand="lg">
 
-  <div className="signin-signup-buttons">
-  <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >SIGN UP</Button>
-        <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >LOG IN </Button>
-  </div>
+          <Navbar.Brand href="/" className="lead" style={{ fontFamily: "Verdana", color: "#7EABA6", font: "lead", margin: "10px", padding: "10px" }}> EVER AFTER </Navbar.Brand>
 
-</Navbar>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleShowMenu} className="navbar-toggle" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ml-auto">
+              {menuItems.map((item) => (
+                <Nav.Link key={item.id} href={item.link}>
+                  {item.text}
+                </Nav.Link>
+              ))}
+            </Nav>
+          </Navbar.Collapse>
 
-      <Offcanvas show={showMenu} onHide={handleCloseMenu} placement="start">
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Planning Items</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <Nav className="flex-column">
-            {menuItems.map((item) => (
-              <Nav.Link key={item.id} href={item.link} onClick={handleCloseMenu}>
-                {item.text}
-              </Nav.Link>
-            ))}
-          </Nav>
-        </Offcanvas.Body>
-      </Offcanvas>
+          <div className="signin-signup-buttons">
+            <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >SIGN UP</Button>
+            <br></br>
+            <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)" }} variant="dark" className="mx-2" >SIGN IN </Button>
+          </div>
+
+        </Navbar>
+
+        <Offcanvas show={showMenu} onHide={handleCloseMenu} placement="start">
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title>Planning Items</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <Nav className="flex-column">
+              {menuItems.map((item) => (
+                <Nav.Link key={item.id} href={item.link} onClick={handleCloseMenu}>
+                  {item.text}
+                </Nav.Link>
+              ))}
+            </Nav>
+          </Offcanvas.Body>
+        </Offcanvas>
 
         {/* <Navbar style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold" }} variant="dark">
           <Container>
             <Nav className="me-auto">
+
+            <ButtonGroup className="mb-2">
+            <Button href="/" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Home</Button>
+            <Button href="/hall" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Vanue</Button>
+            <Button href="/decoration" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Decoration</Button>
+            <Button href="/dj" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">DJ</Button>
+            <Button href="/buffet" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Buffet</Button>
+            <Button href="/Florist" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Florist</Button>
+            <Button href="/Hospitality" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Hospitality</Button>
+            </ButtonGroup>
+            </Nav>
+
 
               <Nav.Link href="/hall">Vanue</Nav.Link>
               <Nav.Link href="/Arrangement">Decoration</Nav.Link>
@@ -210,18 +229,19 @@ function App() {
             </Nav>
 here is the buttons for signin / signout
 
+
           </Container>
         </Navbar>  */}
 
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/signup" element={<Signup  register ={registerHandler} />} />
-            <Route exact path="/signin" element={<Signin  login ={loginHandler} />} />
-            <Route exact path="/dj" element={<DJList />} />
-            <Route exact path="/hall" element={<HallList />} />
-            {/* <Route exact path="/bookings" element={<BookingPage />} /> */}
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/signup" element={<Signup register={registerHandler} />} />
+          <Route exact path="/signin" element={<Signin login={loginHandler} />} />
+          <Route exact path="/dj" element={<DJList />} />
+          <Route exact path="/hall" element={<HallList />} />
+          {/* <Route exact path="/bookings" element={<BookingPage />} /> */}
 
-            {/* <Route path="/hall" element={<HallPage />} />
+          {/* <Route path="/hall" element={<HallPage />} />
             <Route path="/hall/:hallId/arrangement" element={<ArrangementPage />} />
             <Route path="/hall/:hallId/arrangement/:arrangementId/buffet" element={<BuffetPage />} />
              */}
@@ -231,7 +251,10 @@ here is the buttons for signin / signout
             <Route exact path="/Arrangement" element={<ArrangementList />} />
             <Route exact path="/Studio" element={<StudioList />} />
             <Route exact path="/Bouquet" element={<BouquetList />} />
-          </Routes>
+            <Route exact path="/Booking" element={<Booking />} />
+
+
+        </Routes>
 
       </BrowserRouter>
     </>

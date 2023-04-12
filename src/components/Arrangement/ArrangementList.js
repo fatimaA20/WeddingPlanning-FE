@@ -49,6 +49,7 @@ export default function ArrangementList() {
         console.log("Arrangement Updated Successfully!!!")
         console.log(res)
         loadArrangementsList();
+
       })
       .catch(err => {
         console.log("Error Editing Arrangement")
@@ -98,6 +99,7 @@ export default function ArrangementList() {
         <h1 className="text-center font-weight-bold" style={{ fontFamily: "Arial", color: "#200", marginTop: "50px" }}>Arrangement</h1>
         <div className="row">
           {allArrangements}
+
         </div>
       </div>
 
