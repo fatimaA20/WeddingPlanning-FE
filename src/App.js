@@ -13,7 +13,7 @@ import DJList from './components/DJ/DJList';
 import HallList from './components/Hall/HallList';
 import BuffetList from './components/Buffet/BuffetList'
 import HospitalityList from './components/Hospitality/HospitalitiesList'
-import SecurityList from './components/Security/SecurityList';
+import SecurityList from './components/Security/securityList';
 import ArrangementList from './components/Arrangement/ArrangementList';
 import StudioList from './components/Studio/StudioList';
 import BouquetList from './components/Bouquet/BouquetList';
