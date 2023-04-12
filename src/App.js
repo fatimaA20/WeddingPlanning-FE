@@ -132,10 +132,10 @@ function App() {
     { id: 1, text: 'Home', link: '/' },
     { id: 2, text: 'Vanue', link: '/hall' },
     { id: 3, text: 'Buffet', link: '/buffet' },
-    { id: 4, text: 'Decoration', link: '/decoration' },
+    { id: 4, text: 'Decoration', link: '/Arrangement' },
     { id: 5, text: 'DJ', link: '/dj' },
-    { id: 6, text: 'Florist', link: '/florist' },
-    { id: 7, text: 'Hospitality', link: '/hospitality' },
+    { id: 6, text: 'Florist', link: '/Bouquet' },
+    { id: 7, text: 'Hospitality', link: '/Hospitality' },
     { id: 8, text: 'Studio', link: '/Studio' },
     { id: 9, text: 'Security', link: '/Security' },
   
