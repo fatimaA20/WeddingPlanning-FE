@@ -117,6 +117,7 @@ export default function ArrangementList() {
         <h1 className="text-center font-weight-bold" style={{ fontFamily: "Arial", color: "#200", marginTop: "50px" }}>Arrangement</h1>
         <div className="row">
           {allArrangements}
+
           <button
         // disabled={!selectedHallId}
         variant="primary"
@@ -124,6 +125,7 @@ export default function ArrangementList() {
       >
         Next
       </button>
+
         </div>
       </div>
 
