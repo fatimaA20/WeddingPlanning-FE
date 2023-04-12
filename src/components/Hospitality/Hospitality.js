@@ -22,6 +22,9 @@ export default function Hospitality(props) {
                 <h5 class="card-title">{props.name}</h5>
                 <p class="card-text">{props.description}</p>
                 <p class="card-text"> Price: {props.price}BD </p>
+
+                <button onClick={() => { props.editView(props.id) }}>Edit</button>
+                <button onClick={() => props.deleteView(props.id)}>Delete</button>
                 <a href="#" variant="light" onClick={handleBooking} class={`btn ${isBooked ? 'btn-success' : 'btn-light'}`} disabled={isBooked} style={{ position: "relative", bottom: "0", width: "100%", fontSize: "1.2rem" }}>
                   {isBooked ? 'Booked' : 'Book'}
                 </a>
