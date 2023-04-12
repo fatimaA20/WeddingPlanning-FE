@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import Hospitality from "./hospitality";
+import Hospitality from "./Hospitality";
 
 export default function HospitalityList() {
   const [hospitalities, setHospitalities] = useState([]);

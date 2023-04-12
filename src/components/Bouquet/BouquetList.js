@@ -43,6 +43,7 @@ export default function BouquetList() {
             <div className="row">
               {allBouquets}
             </div>
+            <button>next</button>
           </div>
         </div>
       );

@@ -29,9 +29,12 @@ export default function FloristList() {
 
   return (
     <div>
-      {/* <h1>Hospitality List</h1> */}
       <div>
             {allFlorist}
+      </div>
+      <div>
+        <h1>flowers</h1>
+        <button>hello iam heree</button>
       </div>
     </div>
   );

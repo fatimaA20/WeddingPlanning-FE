@@ -17,7 +17,7 @@ import SecurityList from './components/Security/securityList';
 import ArrangementList from './components/Arrangement/ArrangementList';
 import StudioList from './components/Studio/StudioList';
 import BouquetList from './components/Bouquet/BouquetList';
-
+import Booking from './components/Booking/BookingPage'
 function App() {
   const [isAuth,setIsAuth] = useState(false)
   const [user , setUser ] = useState({});
@@ -140,6 +140,8 @@ function App() {
     { id: 7, text: 'Hospitality', link: '/hospitality' },
     { id: 8, text: 'Studio', link: '/Studio' },
     { id: 9, text: 'Security', link: '/Security' },
+    { id: 10, text: 'Booking', link: '/Booking' },
+
   
   ];
   
@@ -255,6 +257,8 @@ here is the buttons for signin / signout
             <Route exact path="/Arrangement" element={<ArrangementList />} />
             <Route exact path="/Studio" element={<StudioList />} />
             <Route exact path="/Bouquet" element={<BouquetList />} />
+            <Route exact path="/Booking" element={<Booking />} />
+
 
           </Routes>
 
