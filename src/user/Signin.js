@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Form, Button } from "react-bootstrap"
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 // import { useNavigate } from 'react-router';
 // import { Redirect } from 'react-router-dom';
 
@@ -7,6 +8,7 @@ export default function Signin(props) {
 
   const [User, setUser] = useState({});
   const [isAuth, setIsAuth] = useState(false)
+  const navigate = useNavigate()
 
   const ChangeHandler = (e) => {
     const user = { ...User }
@@ -18,7 +20,9 @@ export default function Signin(props) {
  
 
   const SignInHandler = () => {
-      props.login(User);
+    console.log(props.login(User))
+    props.login(User)
+
   };
 
 
@@ -41,11 +45,9 @@ export default function Signin(props) {
         <br></br>
 
 
-        {isAuth ?
-          <Button href="/home" varient="primary" onClick={SignInHandler}> Login </Button>
-          :
-          <Button href="/signin" varient="primary" onClick={SignInHandler}> Login </Button>
-        }
+  
+          <Button varient="primary" onClick={SignInHandler}> Login </Button>
+      
       </Container>
     </div>
   )
