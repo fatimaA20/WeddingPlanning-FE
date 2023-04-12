@@ -88,7 +88,14 @@ export default function BuffetList() {
     setbookedBuffetId(BuffetId);
   };
   
-  const allBuffets = Buffets.map((buffet, index) => (
+
+
+    
+    const handleNextClick = () =>{
+      console.log(bookedBuffetId)
+      navigate(`/hospitality`)
+    }  
+    const allBuffets = Buffets.map((buffet, index) => (
     <div key ={index}>
       <Buffet
         {...buffet}
@@ -100,12 +107,6 @@ export default function BuffetList() {
       </div>
 
   ))
-
-    
-    const handleNextClick = () =>{
-      console.log(bookedBuffetId)
-      navigate(`/hospitality`)
-    }
     return (
         <div>
     <br></br>

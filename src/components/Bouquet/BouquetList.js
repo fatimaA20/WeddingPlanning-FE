@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Bouquet from "./bouquet";
-import { Image } from 'react-bootstrap';
-import BouquetEditForm from "./BouquetEditForm";
 import BouquetCreateForm from "./BouquetCreateForm";
+import BouquetEditForm from "./BouquetEditForm"
+import { Image } from 'react-bootstrap';
+
+
 
 export default function BouquetList() {
 
@@ -43,16 +45,7 @@ export default function BouquetList() {
     navigate(`/dj`)
   }
 
-  const allBouquets = Bouquets.map((bouquet, index) => (
-    <div className="col-md-3 mb-3" key={index}>
-      <Bouquet
-{...bouquet}
-        editView={editView}
-        deleteView={deleteBouquet}
 
-      />
-    </div>
-  ))
   
   const editView = (id) => {
     Axios.get(`Bouquet/edit?id=${id}`)
@@ -107,6 +100,16 @@ export default function BouquetList() {
       })
   }
 
+  const allBouquets = Bouquets.map((bouquet, index) => (
+    <div className="col-md-3 mb-3" key={index}>
+      <Bouquet
+{...bouquet}
+        editView={editView}
+        deleteView={deleteBouquet}
+
+      />
+    </div>
+  ))
 
   return (
     <div>
