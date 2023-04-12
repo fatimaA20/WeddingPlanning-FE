@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import {Container , Form , Button} from "react-bootstrap"
+// import { useNavigate } from 'react-router';
+// import { Redirect } from 'react-router-dom';
 
 export default function Signin(props) {
 
@@ -13,8 +15,10 @@ export default function Signin(props) {
     }
 
     const SignInHandler = () => {
-        props.login(User)
-    }
+        props.login(User);
+    };
+
+    
   return (
     <div>
       <br></br>
@@ -32,6 +36,7 @@ export default function Signin(props) {
         <Form.Control name="password" type="password" onChange={ChangeHandler}></Form.Control>
         </Form.Group>
 <br></br>
+
         <Button varient="primary" onClick={SignInHandler}> Login </Button>
 
     </Container>
