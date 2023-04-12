@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import Hospitality from "./hospitality";
+import Hospitality from "./Hospitality";
 
 export default function HospitalityList() {
   const [hospitalities, setHospitalities] = useState([]);
@@ -23,16 +23,15 @@ export default function HospitalityList() {
   };
 
   const allHospitalities = hospitalities && hospitalities.length > 0 && hospitalities.map((hospitality, index) => (
-    <Hospitality {...hospitality} key={index}/>
+    <Hospitality {...hospitality} key={index} />
   ))
-  
+
 
   return (
     <div>
-      {/* <h1>Hospitality List</h1> */}
-      <div>
-            {allHospitalities}
-      </div>
+      <br></br>
+        {allHospitalities}
+    
     </div>
   );
 }

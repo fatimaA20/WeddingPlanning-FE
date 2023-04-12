@@ -32,5 +32,11 @@ export default function SecurityList() {
     />
   ));
 
-  return <div>{allSecurity}</div>;
+  return (
+    <>
+      <br></br>
+              {allSecurity}
+
+        </>
+  );
 }
