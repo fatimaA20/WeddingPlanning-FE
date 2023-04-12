@@ -19,6 +19,7 @@ export default function Buffet(props) {
         <ListGroup.Item>Type: {props.type}</ListGroup.Item>
         <ListGroup.Item>Number of Guests: {props.noOfGuests}</ListGroup.Item>
         <ListGroup.Item>Price: {props.price} BD</ListGroup.Item>
+        <ListGroup.Item><img src={props.image} alt={props.restaurantName} /></ListGroup.Item>
       </ListGroup>
       <Card.Body>
         <Card.Text>

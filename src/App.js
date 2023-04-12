@@ -14,7 +14,6 @@ import HallList from './components/Hall/HallList';
 import BuffetList from './components/Buffet/BuffetList'
 import HospitalityList from './components/Hospitality/HospitalitiesList'
 
-
 function App() {
   const [isAuth,setIsAuth] = useState(false)
   const [user , setUser ] = useState({});
@@ -98,6 +97,7 @@ function App() {
               <Nav.Link href="/buffet">Buffet</Nav.Link>
               <Nav.Link href="/Florist">Florist</Nav.Link>
               <Nav.Link href="/Hospitality">Hospitalities</Nav.Link>
+            
             </Nav>
             <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >SIGN UP</Button>
             <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >LOG IN </Button>
@@ -111,6 +111,12 @@ function App() {
             <Route exact path="/signin" element={<Signin  login ={loginHandler} />} />
             <Route exact path="/dj" element={<DJList />} />
             <Route exact path="/hall" element={<HallList />} />
+            {/* <Route exact path="/bookings" element={<BookingPage />} /> */}
+
+            {/* <Route path="/hall" element={<HallPage />} />
+            <Route path="/hall/:hallId/arrangement" element={<ArrangementPage />} />
+            <Route path="/hall/:hallId/arrangement/:arrangementId/buffet" element={<BuffetPage />} />
+             */}
             <Route exact path="/buffet" element={<BuffetList />} />
             <Route exact path="/Hospitality" element={<HospitalityList />} />
           </Routes>
