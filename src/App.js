@@ -13,7 +13,10 @@ import DJList from './components/DJ/DJList';
 import HallList from './components/Hall/HallList';
 import BuffetList from './components/Buffet/BuffetList'
 import HospitalityList from './components/Hospitality/HospitalitiesList'
-
+import SecurityList from './components/Security/SecurityList';
+import ArrangementList from './components/Arrangement/ArrangementList';
+import StudioList from './components/Studio/StudioList';
+import BouquetList from './components/Bouquet/BouquetList';
 
 function App() {
   const [isAuth,setIsAuth] = useState(false)
@@ -85,10 +88,12 @@ function App() {
     { id: 1, text: 'Home', link: '/' },
     { id: 2, text: 'Vanue', link: '/hall' },
     { id: 3, text: 'Buffet', link: '/buffet' },
-    { id: 4, text: 'Decoration', link: '/decor' },
+    { id: 4, text: 'Decoration', link: '/Arrangement' },
     { id: 5, text: 'DJ', link: '/dj' },
-    { id: 6, text: 'Florist', link: '/florist' },
-    { id: 7, text: 'Hospitality', link: '/hospitalities' },
+    { id: 6, text: 'Florist', link: '/Bouquet' },
+    { id: 7, text: 'Hospitality', link: '/hospitality' },
+    { id: 8, text: 'Studio', link: '/Studio' },
+    { id: 9, text: 'Security', link: '/Security' },
   
   ];
   
@@ -138,6 +143,20 @@ function App() {
         {/* <Navbar style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold" }} variant="dark">
           <Container>
             <Nav className="me-auto">
+
+              <Nav.Link href="/hall">Vanue</Nav.Link>
+              <Nav.Link href="/Arrangement">Decoration</Nav.Link>
+              <Nav.Link href="/Bouquet">Florist</Nav.Link>
+              <Nav.Link href="/Security">Security</Nav.Link>
+              <Nav.Link href="/dj">DJ</Nav.Link>
+              <Nav.Link href="/buffet">Buffet</Nav.Link>
+              <Nav.Link href="/Hospitality">Hospitalities</Nav.Link>
+              <Nav.Link href="/Studio">Studio</Nav.Link>
+            </Nav>
+            <Button href="/signup" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >SIGN UP</Button>
+            <Button href="/signin" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >LOG IN </Button>
+            <Button href="/logout" style={{ backgroundColor: "#7EABA6", fontFamily: "Arial", borderColor: "#208075" }} variant="dark" className="mx-2" >LOGOUT </Button>
+
             <ButtonGroup className="mb-2">
             <Button href="/" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Home</Button>
             <Button href="/hall" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Vanue</Button>
@@ -149,6 +168,7 @@ function App() {
             </ButtonGroup>
             </Nav>
 here is the buttons for signin / signout
+
           </Container>
         </Navbar>  */}
 
@@ -160,8 +180,18 @@ here is the buttons for signin / signout
             {/* <Route exact path="/decor" element={<DecorList />} />
             <Route exact path="/florist" element={<FloristList />} /> */}
             <Route exact path="/hall" element={<HallList />} />
+            {/* <Route exact path="/bookings" element={<BookingPage />} /> */}
+
+            {/* <Route path="/hall" element={<HallPage />} />
+            <Route path="/hall/:hallId/arrangement" element={<ArrangementPage />} />
+            <Route path="/hall/:hallId/arrangement/:arrangementId/buffet" element={<BuffetPage />} />
+             */}
             <Route exact path="/buffet" element={<BuffetList />} />
-            <Route exact path="/hospitalities" element={<HospitalityList />} />
+            <Route exact path="/Hospitality" element={<HospitalityList />} />
+            <Route exact path="/Security" element={<SecurityList />} />
+            <Route exact path="/Arrangement" element={<ArrangementList />} />
+            <Route exact path="/Studio" element={<StudioList />} />
+            <Route exact path="/Bouquet" element={<BouquetList />} />
           </Routes>
 
       </BrowserRouter>
