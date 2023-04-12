@@ -83,6 +83,52 @@ function App() {
   }
 
 
+  // const [showMenu, setShowMenu] = useState(false);
+
+  // function handleMenuToggle() {
+  //   setShowMenu((prevShowMenu) => !prevShowMenu);
+  // }
+
+  // return (
+  //   <div>
+  //     <BrowserRouter>
+  //       <header style={{ zIndex: 1 }}>
+  //         <div className="logo"> EVER AFTER WEDDING PLANNER </div>
+  //         <div className={`toggle ${showMenu ? 'active' : ''}`} onClick={handleMenuToggle} />
+
+  //       </header>
+  //       <div className={`showcase ${showMenu ? 'active' : ''}`}>
+  //         {showMenu && (
+  //           <nav>
+
+  //                 <Link to="/">Home</Link>
+  //                 <Link to="/hall">Vanue</Link>
+  //                 <Link to="/dj">DJ </Link>
+  //                 <Link to="/buffet">Buffet </Link>
+  //                 <Link to="/Hospitality">Hospitality </Link>
+  //                 <br></br>
+  //                 <br></br>
+  //                 <Link to="/signup">Signup</Link>
+  //                 <Link to="/signin">Signin</Link>
+
+  //           </nav>
+  //         )}
+
+  //       </div>
+  //       <Routes>
+  //           <Route exact path="/" element={<Home />} />
+  //           <Route exact path="/signup" element={<Signup  register ={registerHandler} />} />
+  //           <Route exact path="/signin" element={<Signin  login ={loginHandler} />} />
+  //           <Route exact path="/dj" element={<DJList />} />
+  //           <Route exact path="/hall" element={<HallList />} />
+  //           <Route exact path="/buffet" element={<BuffetList />} />
+  //           <Route exact path="/Hospitality" element={<HospitalityList />} />
+  //         </Routes>
+  //     </BrowserRouter>
+  //   </div>
+  // );  
+  // }
+
   const [showMenu, setShowMenu] = useState(false);
   const menuItems = [
     { id: 1, text: 'Home', link: '/' },
@@ -103,7 +149,9 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar bg="light" expand="lg">
+
           <Navbar.Brand href="/" className="lead" style={{ fontFamily: "Verdana", color: "#7EABA6", font: "lead", margin: "10px", padding: "10px" }}> EVER AFTER </Navbar.Brand>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleShowMenu} className="navbar-toggle" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
@@ -142,6 +190,18 @@ function App() {
           <Container>
             <Nav className="me-auto">
 
+            <ButtonGroup className="mb-2">
+            <Button href="/" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Home</Button>
+            <Button href="/hall" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Vanue</Button>
+            <Button href="/decoration" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Decoration</Button>
+            <Button href="/dj" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">DJ</Button>
+            <Button href="/buffet" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Buffet</Button>
+            <Button href="/Florist" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Florist</Button>
+            <Button href="/Hospitality" style={{ backgroundColor: "#208075", fontFamily: "Verdana", fontWeight: "bold", border: "none", boxShadow: "1px 1px 3px rgba(0, 0, 0, 0.2)"  }} variant="dark">Hospitality</Button>
+            </ButtonGroup>
+            </Nav>
+
+
               <Nav.Link href="/hall">Vanue</Nav.Link>
               <Nav.Link href="/Arrangement">Decoration</Nav.Link>
               <Nav.Link href="/Bouquet">Florist</Nav.Link>
@@ -167,6 +227,7 @@ function App() {
             </Nav>
 here is the buttons for signin / signout
 
+
           </Container>
         </Navbar>  */}
 
@@ -188,6 +249,7 @@ here is the buttons for signin / signout
           <Route exact path="/Arrangement" element={<ArrangementList />} />
           <Route exact path="/Studio" element={<StudioList />} />
           <Route exact path="/Bouquet" element={<BouquetList />} />
+
         </Routes>
 
       </BrowserRouter>

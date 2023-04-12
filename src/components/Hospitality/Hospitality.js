@@ -3,7 +3,7 @@ import React from 'react'
 export default function Hospitality(props) {
   return (
     <div>
-      <br></br>
+      
       <div className='container'>
         <div className='row'>
           <div className='col-md-3'>
@@ -13,23 +13,15 @@ export default function Hospitality(props) {
                 <h5 class="card-title">{props.name}</h5>
                 <p class="card-text">{props.description}</p>
                 <p class="card-text"> Price: {props.price}BD </p>
-                <a href="#" class="btn btn-light ">Add</a>
+                <a href="#" class="btn btn-light ">Book</a>
               </div>
             </div>
           </div>
-          <div className='col-md-3'>
-            <div class="card" >
-              <img class="card-img-top" src="https://images.unsplash.com/photo-1675247488725-22d1b78e75db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VkZGluZyUyMGhhbGxzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Card image cap" />
-              <div class="card-body">
-                <h5 class="card-title">{props.name}</h5>
-                <p class="card-text">{props.description}</p>
-                <p class="card-text"> Price: {props.price}BD </p>
-                <a href="#" class="btn btn-light">Book</a>
-              </div>
-            </div>
-          </div>
+         
         </div>
       </div>
+      <br></br>
     </div>
+  
   )
 }

@@ -31,11 +31,8 @@ export default function StudioList() {
   return (
     <div>
       <br></br>
-      {/* <h1>Studio </h1> */}
-      <div>
-
             {allStudios}
-      </div>
+    
     </div>
   );
 }

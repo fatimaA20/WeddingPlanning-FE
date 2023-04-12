@@ -29,9 +29,9 @@ export default function HospitalityList() {
 
   return (
     <div>
-      <div>
+      <br></br>
         {allHospitalities}
-      </div>
+    
     </div>
   );
 }
