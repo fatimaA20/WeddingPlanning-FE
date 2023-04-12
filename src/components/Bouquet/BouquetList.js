@@ -11,6 +11,7 @@ export default function BouquetList() {
   const [isEdit, setIsEdit] = useState(false);
   const [currentBouquet, setCurrentBouquet] = useState("")
 
+
   useEffect(() => {
     loadBouquetsList();
   }, []);
@@ -28,6 +29,17 @@ export default function BouquetList() {
       })
   }
 
+  const allBouquets = Bouquets.map((bouquet, index) => (
+    <div className="col-md-3 mb-3" key={index}>
+      <Bouquet
+{...bouquet}
+        editView={editView}
+        deleteView={deleteBouquet}
+
+      />
+    </div>
+  ))
+  
   const editView = (id) => {
     Axios.get(`Bouquet/edit?id=${id}`)
       .then(res => {
@@ -81,20 +93,17 @@ export default function BouquetList() {
       })
   }
 
-  const allBouquets = Bouquets.map((bouquet, index) => (
-    <div className="col-md-3 mb-3" key={index}>
-      <Bouquet
-{...bouquet}
-        editView={editView}
-        deleteView={deleteBouquet}
-      />
-    </div>
-  ))
 
   return (
     <div>
       <br></br>
       {allBouquets}
+
+      <div className="container d-flex justify-content-between">
+        <button type="button" class="btn btn-dark" >Next &rarr;</button>
+      </div>
+    </div>
+
 
       {(!isEdit) ?
 
@@ -105,5 +114,6 @@ export default function BouquetList() {
       }
       <button>next</button>
     </div>
+
   );
 }

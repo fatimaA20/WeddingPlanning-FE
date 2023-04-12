@@ -23,6 +23,8 @@ export default function DJList() {
         })
     }
 
+    
+
     const allDjs =  djs.map((dj, index) => (
       <div key={dj.id}>
             <Dj {...dj}/>
