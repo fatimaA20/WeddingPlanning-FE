@@ -33,12 +33,15 @@ export default function StudioList() {
 
   const handleNextClick = () =>{
     console.log(bookedStudioId)
-    navigate(`/security`)
+    navigate(`/Security`)
   }
 
   const allStudios = studios.map((studio, index) => (
     <tr key={index}>
-      <Studio {...studio} />
+      <Studio {...studio} 
+      id = {studio._id}
+      onBooked={handleStudioBooking}/>
+
     </tr>
   ));
 
