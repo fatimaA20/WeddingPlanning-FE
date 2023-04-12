@@ -40,16 +40,11 @@ const HallList = ({ handleHallSelection, selectedHallId }) => {
   ));
 
   return (
-    <div>
-      <ul>{hallList}</ul>
-      <div>
-      {selectedHallId && (
-        <button type="button" onClick={handleNextClick}>
-          Next
-        </button>
-      )}
-      </div>
-    </div>
+    <>
+      <br></br>
+              {hallList}
+
+        </>
   );
 };
 

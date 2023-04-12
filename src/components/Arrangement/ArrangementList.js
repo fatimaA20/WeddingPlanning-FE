@@ -37,12 +37,9 @@ export default function ArrangementList() {
 
     return (
         <div>
-          <div className="row">
-          <h1  className="text-center font-weight-bold" style={{fontFamily: "Arial", color: "#200", marginTop: "50px"}}>Arrangement</h1>
-            <div className="row">
+     <br></br>
               {allArrangements}
-            </div>
-          </div>
+             
         </div>
       );
 }

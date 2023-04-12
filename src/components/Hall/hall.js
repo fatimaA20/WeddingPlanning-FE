@@ -5,8 +5,7 @@ import { BsPlus } from 'react-icons/bs';
 export default function Hall(props) {
   return (
     <>
-      <br></br>
-      {/* <h1 className='text-center text-success my-5'>Vanue</h1> */}
+
       <div className='container'>
         <div className='row'>
           <div className='col-md-3'>
@@ -15,12 +14,12 @@ export default function Hall(props) {
               <div class="card-body">
                 <h5 class="card-title">{props.name}</h5>
                 <p class="card-text">Capacity: {props.size}, Price: {props.price}BD </p>
-                <a href="#" class="btn btn-light ">Add</a>
+                <a href="#" class="btn btn-light ">Book</a>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+</div>
+</div>
 
 
     </>
