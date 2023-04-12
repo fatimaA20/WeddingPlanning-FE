@@ -10,16 +10,18 @@ body {
 }
 
 .signin-signup-buttons {
-  /* position: absolute;
+
+  position: absolute;
+
   top: 0;
   right: 0;
   display: flex;
   align-items: center;
   height: 100%;
-  padding-right: 20px; */
   padding-right: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
 }

@@ -14,7 +14,7 @@ export default function HospitalityList() {
       .then((response) => {
         console.log(response);
         // State to store the data
-        setHospitalities(response.data.hospitalities);
+        setHospitalities(response.data.hospitality);
       })
       .catch((err) => {
         console.log("Error Retreiving hospitalities");
