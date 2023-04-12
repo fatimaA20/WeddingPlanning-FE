@@ -94,6 +94,7 @@ export default function () {
       })
     }
 
+
   const handleNextClick = () =>{
     console.log(bookedHallId)
     navigate(`/Arrangement`)
