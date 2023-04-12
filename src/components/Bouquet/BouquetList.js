@@ -5,43 +5,49 @@ import { Image } from 'react-bootstrap';
 
 export default function BouquetList() {
 
-    const [Bouquets, setBouquets] = useState([]);
+  const [Bouquets, setBouquets] = useState([]);
 
-    useEffect(() => {
-        loadBouquetsList();
-    }, []);
-    
-    const loadBouquetsList = () => {
-        Axios.get("Bouquet/index")
-        .then((response) => {
-          console.log(response)
-          // State to store the data
-          setBouquets(response.data.bouquets)
-        })
-        .catch((err) => {
-          console.log("Error Retrieving Bouquets")
-          console.log(err)
-        })
-    }
+  useEffect(() => {
+    loadBouquetsList();
+  }, []);
 
-    const allBouquets =  Bouquets.map((bouquet, index) => (
-        <div className="col-md-3 mb-3" key={Bouquet.id}>
-        <Bouquet
-          Name={bouquet.name}
-          description={bouquet.description}
-          color={bouquet.color}
-          price={bouquet.price}
-          image={bouquet.image}
-        />
+  const loadBouquetsList = () => {
+    Axios.get("Bouquet/index")
+      .then((response) => {
+        console.log(response)
+        // State to store the data
+        setBouquets(response.data.bouquets)
+      })
+      .catch((err) => {
+        console.log("Error Retrieving Bouquets")
+        console.log(err)
+      })
+  }
+
+  const allBouquets = Bouquets.map((bouquet, index) => (
+    <div className="col-md-3 mb-3" key={Bouquet.id}>
+      <Bouquet
+        Name={bouquet.name}
+        description={bouquet.description}
+        color={bouquet.color}
+        price={bouquet.price}
+        image={bouquet.image}
+      />
+    </div>
+  ))
+
+  
+  
+
+  return (
+    <div>
+      <br></br>
+      {allBouquets}
+      <div className="container d-flex justify-content-between">
+        <button type="button" class="btn btn-dark" > &larr; Previous</button>
+        <button type="button" class="btn btn-dark" >Next &rarr;</button>
       </div>
-    ))
+    </div>
 
-    return (
-        <div>
-            <br></br>
-              {allBouquets}
-            <button>next</button>
-          </div>
-
-      );
+  );
 }
