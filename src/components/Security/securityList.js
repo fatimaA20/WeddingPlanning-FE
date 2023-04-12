@@ -30,21 +30,10 @@ const allSecurityItems = securityItems.map((SecurityItem, index) => (
 
 return (
 <div>
-<h1>Security List</h1>
-<div>
-<table>
-<tbody>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>No. of Security </th>
-<th>Price</th>
-<th>Image</th>
-</tr>
-{allSecurityItems}
-</tbody>
-</table>
+    <br></br>
+    {/* <h1>Security</h1> */}
+    {allSecurityItems}
 </div>
-</div>
+
 );
 }

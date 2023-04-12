@@ -30,20 +30,11 @@ export default function StudioList() {
 
   return (
     <div>
-      <h1>Studio List</h1>
+      <br></br>
+      {/* <h1>Studio </h1> */}
       <div>
-        <table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th>PackageType</th>
-              <th>description</th>
-              <th>price</th>
-              <th>image</th>
-            </tr>
+
             {allStudios}
-          </tbody>
-        </table>
       </div>
     </div>
   );
