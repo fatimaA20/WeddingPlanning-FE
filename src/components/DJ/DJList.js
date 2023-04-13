@@ -31,24 +31,24 @@ export default function DJList() {
     }
 
 
-    const editView = (id) => {
-      console.log(id)
-      Axios.get(`dj/edit?id=${id}`)
-        .then(res => {
-          let DJ = res.data
-          console.log("Loaded DJ Information")
-          console.log(id)
-          console.log(res)
-          console.log(res.data)
-          console.log(res.data.dj)
-          setIsEdit(true)
-          setCurrentDJ(DJ)
-        })
-        .catch(err => {
-          console.log("Error Loading DJ Information")
-          console.log(err)
-        })
-    }
+    // const editView = (id) => {
+    //   console.log(id)
+    //   Axios.get(`dj/edit?id=${id}`)
+    //     .then(res => {
+    //       let DJ = res.data
+    //       console.log("Loaded DJ Information")
+    //       console.log(id)
+    //       console.log(res)
+    //       console.log(res.data)
+    //       console.log(res.data.dj)
+    //       setIsEdit(true)
+    //       setCurrentDJ(DJ)
+    //     })
+    //     .catch(err => {
+    //       console.log("Error Loading DJ Information")
+    //       console.log(err)
+    //     })
+    // }
   
     const editDJ = (dj) => {
       Axios.put("dj/update", dj)
@@ -103,7 +103,7 @@ export default function DJList() {
       <div key={index} style={{ float: 'left', margin:"10px" }}>
             <Dj {...dj}
             id = {dj._id}
-            editView={editView}
+            // editView={editView}
             deleteView={deleteDJ}
             onBooked={handleDjBooking}
             />
@@ -117,11 +117,11 @@ export default function DJList() {
                     <br></br>
                     <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
 
-                    {(!isEdit) ?
+                    {/* {(!isEdit) ?
           <DJCreateForm addDJ={addDJ} />
           :
           <DJEditForm key={currentDJ._id} dj={currentDJ} editDJ={editDJ} />
-        }
+        } */}
 
   <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
 </div>

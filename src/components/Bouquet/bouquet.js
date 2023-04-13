@@ -17,7 +17,7 @@ export default function Bouquet(props) {
   return (
     <div>
   <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={props.image} />
+      <Card.Img variant="top" src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=404&q=80" />
       <Card.Body>
         <Card.Title>{props.name}</Card.Title>
         <Card.Text>
