@@ -28,32 +28,32 @@ export default function StudioList() {
 
   const handleStudioBooking = (studioId) => {
     setBookedStudioId(studioId);
-    
+
   };
 
-  const handleNextClick = () =>{
+  const handleNextClick = () => {
     console.log(bookedStudioId)
     navigate(`/Security`)
   }
 
   const allStudios = studios.map((studio, index) => (
-    <tr key={index}>
-      <Studio {...studio} 
-      id = {studio._id}
-      onBooked={handleStudioBooking}/>
-
-    </tr>
+    <div key={index} style={{ float: "left" }}>
+      <Studio {...studio}
+        id={studio._id}
+        onBooked={handleStudioBooking} />
+    </div>
   ));
 
   return (
-    <div>
+    <>
       <br></br>
-            {allStudios}
-            <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
+
+      {allStudios}
+
+      <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
   <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
 </div>
-    
-    </div>
+    </>
   );
 }
 

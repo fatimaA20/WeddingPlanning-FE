@@ -30,6 +30,10 @@ const handleBooking = () => {
           <h5 className="card-title">{props.name}</h5>
           <p className="card-text">Hours: {props.noOfHours} H, Price: {props.price} BD </p>
           <p className="card-text"><small className="text-muted" style={{ color: "white" }}>Last updated 3 mins ago</small></p>
+          <div style={{ display: 'flex' }}>
+  <button type="button" class="btn btn-outline-dark btn-sm" style={{ display: 'flex', margin:"10px", width: "50%", fontSize: "1rem", textAlign:"center"}} onClick={() => { props.editView(props._id) }}>Edit</button>
+  <button type="button" class="btn btn-outline-dark btn-sm" style={{ display: 'flex', margin:"10px", width: "50%", fontSize: "1rem", textAlign:"center" }} onClick={() => props.deleteView(props._id)}>Delete</button>
+</div>
           <a href="#" variant="light" onClick={handleBooking} class={`btn ${isBooked ? 'btn-success' : 'btn-light'}`} disabled={isBooked} style={{position: "relative", bottom: "0", width: "100%", fontSize: "1.2rem"}}>
   {isBooked ? 'Booked' : 'Book'}
 </a>

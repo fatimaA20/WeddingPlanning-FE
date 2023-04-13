@@ -31,20 +31,20 @@ export default function BuffetList() {
       })
   }
 
-  const editView = (id) => {
-    Axios.get(`buffet/edit?id=${id}`)
-      .then(res => {
-        let buffet = res.data.buffet
-        console.log("Loaded Buffet Information")
-        console.log(id)
-        setIsEdit(true)
-        setCurrentBuffet(buffet)
-      })
-      .catch(err => {
-        console.log("Error Loading Buffet Information")
-        console.log(err)
-      })
-  }
+  // const editView = (id) => {
+  //   Axios.get(`buffet/edit?id=${id}`)
+  //     .then(res => {
+  //       let buffet = res.data.buffet
+  //       console.log("Loaded Buffet Information")
+  //       console.log(id)
+  //       setIsEdit(true)
+  //       setCurrentBuffet(buffet)
+  //     })
+  //     .catch(err => {
+  //       console.log("Error Loading Buffet Information")
+  //       console.log(err)
+  //     })
+  // }
 
   const editBuffet = (buffet) => {
     Axios.put("buffet/update", buffet)
@@ -89,19 +89,17 @@ export default function BuffetList() {
   };
   
 
-
-    
     const handleNextClick = () =>{
       console.log(bookedBuffetId)
       navigate(`/hospitality`)
     }  
     const allBuffets = Buffets.map((buffet, index) => (
-    <div key ={index} style={{ float: 'left' }}>
+    <div key ={index} style={{ float: "left" }}>
       <Buffet
         {...buffet}
         id={buffet._id}
         deleteView={deleteBuffet}
-        editView={editView}
+        // editView={editView}
         onBooked={handleBuffetBooking}
       />
     </div>
@@ -111,15 +109,19 @@ export default function BuffetList() {
     return (
        <>
     <br></br>
-              {allBuffets}
 
+              {allBuffets}
+              <br></br>
+              <br></br>
+{/* 
               {(!isEdit) ?
 
 <BuffetCreateForm addBuffet={addBuffet} />
 :
-<BuffetEditForm key={currentBuffet._id} buffet={currentBuffet} editBuffet={editBuffet} />
+<BuffetEditForm key={currentBuffet._id} buffet={currentBuffet} editBuffet={editBuffet} /> */}
 
-}
+{/* }  */}
+
 <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
   <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
 </div>

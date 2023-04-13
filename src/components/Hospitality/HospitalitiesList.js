@@ -41,7 +41,7 @@ export default function HospitalityList() {
   const allHospitalities = hospitalities && hospitalities.length > 0 && (
     <div >
       {hospitalities.map((hospitality, index) => (
-        <div key={index} style={{ padding: '1px', display:'absolute', float:"left" }}>
+        <div key={index} style={{  float:"left", marginLeft:"20px" }}>
           <Hospitality {...hospitality} 
               id = {hospitality._id}
     onBooked={handleHospitalitiesBooking}
@@ -54,7 +54,7 @@ export default function HospitalityList() {
   
 
   return (
-    <>
+    <div>
       <br></br>
         {allHospitalities}
         <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
@@ -62,8 +62,8 @@ export default function HospitalityList() {
 </div>
 
 <br></br>
-<h1></h1>
 
-    </>
+
+    </div>
   );
 }
