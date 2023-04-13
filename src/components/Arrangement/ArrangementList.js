@@ -34,20 +34,20 @@ export default function ArrangementList() {
   }
 
 
-  // const editView = (id) => {
-  //   Axios.get(`Arrangement/edit?id=${id}`)
-  //     .then(res => {
-  //       let arrangement = res.data.Arrangement
-  //       console.log("Loaded Arrangement Information")
-  //       console.log(id)
-  //       setIsEdit(true)
-  //       setCurrentArrangement(arrangement)
-  //     })
-  //     .catch(err => {
-  //       console.log("Error Loading Arrangement Information")
-  //       console.log(err)
-  //     })
-  // }
+  const editView = (id) => {
+    Axios.get(`Arrangement/edit?id=${id}`)
+      .then(res => {
+        let arrangement = res.data.Arrangement
+        console.log("Loaded Arrangement Information")
+        console.log(id)
+        setIsEdit(true)
+        setCurrentArrangement(arrangement)
+      })
+      .catch(err => {
+        console.log("Error Loading Arrangement Information")
+        console.log(err)
+      })
+  }
 
   const editArrangement = (arrangement) => {
     Axios.put("Arrangement/update", arrangement)
@@ -102,7 +102,7 @@ export default function ArrangementList() {
     <div className="col-md-3 mb-3" key={index} style={{float:'left'}}>
       <Arrangement
         {...arrangement}
-        // editView={editView}
+        editView={editView}
         deleteView={deleteArrangement} // change this to deleteView
         onBooked={handleArrangementBooking}
         id = {arrangement._id}

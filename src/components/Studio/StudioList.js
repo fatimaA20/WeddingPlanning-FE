@@ -126,8 +126,7 @@ export default function StudioList() {
 
         <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{ position: "absolute", top: "20px", right: 0 }}>Next &rarr;</button>
       </div>
-
-    </div>
+</>
 
   );
 }

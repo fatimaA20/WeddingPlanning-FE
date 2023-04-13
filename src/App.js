@@ -93,7 +93,7 @@ function App() {
 
   const [showMenu, setShowMenu] = useState(false);
   const menuItems = [
-    { id: 1, text: 'Home', link: '/' },
+    // { id: 1, text: 'Home', link: '/' },
     { id: 2, text: 'Vanue', link: '/hall' },
     { id: 3, text: 'Buffet', link: '/buffet' },
     { id: 4, text: 'Hospitality', link: '/hospitality' },

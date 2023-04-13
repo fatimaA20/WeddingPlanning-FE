@@ -4,13 +4,15 @@ import React, { useState, useEffect } from 'react'
 
 export default function Security(props) {
   const [isBooked, setIsBooked] = useState(false);
+
   const handleBooking = () => {
     // Call a function to handle the booking here
     console.log(`Booked security ${props.id}`);
     setIsBooked(true);
     props.onBooked(props.id);
     localStorage.setItem("Security_id", props.id)
-  };
+  }
+   
   return (
     <>
 
@@ -33,7 +35,9 @@ export default function Security(props) {
 
         </div>
       </div>
+      </div>
+      </div>
+      </div>
       <br></br>
     </>
-  )
-}
+  ) }

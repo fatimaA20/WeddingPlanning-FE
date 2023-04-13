@@ -37,24 +37,24 @@ export default function () {
       });
   };
 
-  // const editView = (id) => {
-  //   console.log(id)
-  //   Axios.get(`hall/edit?id=${id}`)
-  //     .then(res => {
-  //       let Hall = res.data
-  //       console.log("Loaded Hall Information")
-  //       console.log(id)
-  //       console.log(res)
-  //       console.log(res.data)
-  //       console.log(res.data.hall)
-  //       setIsEdit(true)
-  //       setCurrentHall(Hall)
-  //     })
-  //     .catch(err => {
-  //       console.log("Error Loading Hall Information")
-  //       console.log(err)
-  //     })
-  // }
+  const editView = (id) => {
+    console.log(id)
+    Axios.get(`hall/edit?id=${id}`)
+      .then(res => {
+        let Hall = res.data
+        console.log("Loaded Hall Information")
+        console.log(id)
+        console.log(res)
+        console.log(res.data)
+        console.log(res.data.hall)
+        setIsEdit(true)
+        setCurrentHall(Hall)
+      })
+      .catch(err => {
+        console.log("Error Loading Hall Information")
+        console.log(err)
+      })
+  }
 
   const editHall = (hall) => {
     Axios.put("hall/update", hall)
@@ -111,7 +111,7 @@ export default function () {
         price={hall.price}
         image={hall.image}
         onBooked={handleHallBooking}
-        // editView={editView}
+        editView={editView}
         deleteView={deleteHall}
       />
     </div>

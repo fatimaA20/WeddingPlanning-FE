@@ -30,8 +30,6 @@ export default function Dj(props) {
           <h5 className="card-title">{props.name}</h5>
           <p className="card-text">Hours: {props.noOfHours} H, Price: {props.price} BD </p>
 
-          <button onClick={() => { props.editView(props.id) }}>Edit</button>
-          <button onClick={() => props.deleteView(props.id)}>Delete</button>
 
 
           <p className="card-text"><small className="text-muted" style={{ color: "white" }}>Last updated 3 mins ago</small></p>
