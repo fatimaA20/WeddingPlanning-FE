@@ -44,24 +44,24 @@ export default function HospitalityList() {
   }
 
 
-  const editView = (id) => {
-    console.log(id)
-    Axios.get(`hospitality/edit?id=${id}`)
-      .then(res => {
-        let Hospitality = res.data
-        console.log("Loaded Hospitality Information")
-        console.log(id)
-        console.log(res)
-        console.log(res.data)
-        console.log(res.data.hospitality)
-        setIsEdit(true)
-        setCurrentHospitality(Hospitality)
-      })
-      .catch(err => {
-        console.log("Error Loading Hospitality Information")
-        console.log(err)
-      })
-  }
+  // const editView = (id) => {
+  //   console.log(id)
+  //   Axios.get(`hospitality/edit?id=${id}`)
+  //     .then(res => {
+  //       let Hospitality = res.data
+  //       console.log("Loaded Hospitality Information")
+  //       console.log(id)
+  //       console.log(res)
+  //       console.log(res.data)
+  //       console.log(res.data.hospitality)
+  //       setIsEdit(true)
+  //       setCurrentHospitality(Hospitality)
+  //     })
+  //     .catch(err => {
+  //       console.log("Error Loading Hospitality Information")
+  //       console.log(err)
+  //     })
+  // }
 
   const editHospitality = (hospitality) => {
     Axios.put("hospitality/update", hospitality)
@@ -108,7 +108,7 @@ export default function HospitalityList() {
         <div key={index} style={{  float:"left", marginLeft:"20px" }}>
           <Hospitality {...hospitality} 
               id = {hospitality._id}
-              editView={editView}
+              // editView={editView}
               deleteView={deleteHospitality}
     onBooked={handleHospitalitiesBooking}
     />
@@ -124,11 +124,11 @@ export default function HospitalityList() {
       <br></br>
         {allHospitalities}
         <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
-        {(!isEdit) ?
+        {/* {(!isEdit) ?
           <HospitalityCreateForm addHospitality={addHospitality} />
           :
           <HospitalityEditForm key={currentHospitality._id} hospitality={currentHospitality} editHospitality={editHospitality} />
-        }
+        } */}
 
   <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
 </div>

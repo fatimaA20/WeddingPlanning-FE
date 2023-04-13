@@ -94,7 +94,7 @@ export default function BuffetList() {
       navigate(`/hospitality`)
     }  
     const allBuffets = Buffets.map((buffet, index) => (
-    <div key ={index} style={{ float: "left" }}>
+    <div key ={index} style={{ float: "left", position:"relative" }}>
       <Buffet
         {...buffet}
         id={buffet._id}
@@ -102,6 +102,8 @@ export default function BuffetList() {
         editView={editView}
         onBooked={handleBuffetBooking}
       />
+      <br></br>
+      <br></br>
     </div>
   ));
 

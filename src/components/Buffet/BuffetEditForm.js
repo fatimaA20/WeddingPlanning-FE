@@ -1,4 +1,6 @@
 import React,{useState} from 'react'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export default function BuffetEditForm(props) {
     const [buffet, setBuffet] = useState(props.buffet)
@@ -20,8 +22,42 @@ export default function BuffetEditForm(props) {
     }
   
     return (
-      <div>
-          <h1>Edit Buffet</h1>
+      <div style={{position: "relative"}}>
+<br></br>
+<br></br>
+
+<Form onSubmit={handleSubmit} style={{marginTop:"40px", padding:"20px"}}>
+      <Form.Group className="mb-3" controlId="formBasicEmail"  style={{marginBottom:"40px"}}>
+        {/* <Form.Label>Restaurant Name</Form.Label> */}
+        <Form.Control type="text" name="name" value={buffet.restaurantName}  placeholder='Resturant Name' onChange={handleChange} />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        {/* <Form.Label>Type</Form.Label> */}
+        <Form.Control type="text" name="type" value={buffet.type} placeholder='Type'onChange={handleChange} />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        {/* <Form.Label>Description</Form.Label> */}
+        <Form.Control type="text" name="description" value={buffet.description} placeholder='Description' onChange={handleChange}/>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        {/* <Form.Label>Number of Guests</Form.Label> */}
+        <Form.Control type="number" name="noOfGuests" value={buffet.noOfGuests} placeholder='No of Guests' onChange={handleChange}/>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        {/* <Form.Label>Price</Form.Label> */}
+        <Form.Control type="number" name="price" value={buffet.price} placeholder='Price' onChange={handleChange}/>
+      </Form.Group>
+
+      <Button variant="primary" type="submit" value="Edit Buffet">
+        Submit
+      </Button>
+    </Form>
+    <div>
+      </div>
+<br></br>
+          {/* <h1>Edit Buffet</h1>
   
         <form onSubmit={handleSubmit}>
             <div>
@@ -53,6 +89,7 @@ export default function BuffetEditForm(props) {
                 <input type="submit" value="Edit Buffet"></input>
             </div>
         </form>
+      </div> */}
       </div>
     )
   }

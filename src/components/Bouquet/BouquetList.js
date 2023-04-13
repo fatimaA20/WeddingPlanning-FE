@@ -119,13 +119,13 @@ export default function BouquetList() {
   <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
 </div>
 <br></br>
-      {(!isEdit) ?
+      {/* {(!isEdit) ?
 
         <BouquetCreateForm addBouquet={addBouquet} />
         :
         <BouquetEditForm key={currentBouquet._id} bouquet={currentBouquet} editBouquet={editBouquet} />
 
-      }
+      } */}
 
     </div>
 

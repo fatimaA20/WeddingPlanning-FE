@@ -17,24 +17,24 @@ export default function StudioList() {
     loadStudioList();
   }, []);
 
-  const editView = (id) => {
-    console.log(id)
-    Axios.get(`studio/edit?id=${id}`)
-      .then(res => {
-        let Studio = res.data
-        console.log("Loaded Studio Information")
-        console.log(id)
-        console.log(res)
-        console.log(res.data)
-        console.log(res.data.studio)
-        setIsEdit(true)
-        setCurrentStudio(Studio)
-      })
-      .catch(err => {
-        console.log("Error Loading Studio Information")
-        console.log(err)
-      })
-  }
+  // const editView = (id) => {
+  //   console.log(id)
+  //   Axios.get(`studio/edit?id=${id}`)
+  //     .then(res => {
+  //       let Studio = res.data
+  //       console.log("Loaded Studio Information")
+  //       console.log(id)
+  //       console.log(res)
+  //       console.log(res.data)
+  //       console.log(res.data.studio)
+  //       setIsEdit(true)
+  //       setCurrentStudio(Studio)
+  //     })
+  //     .catch(err => {
+  //       console.log("Error Loading Studio Information")
+  //       console.log(err)
+  //     })
+  // }
 
   const editStudio = (studio) => {
     Axios.put("studio/update", studio)
@@ -106,7 +106,7 @@ export default function StudioList() {
       <Studio {...studio}
         id={studio._id}
         onBooked={handleStudioBooking} 
-                editView={editView}
+                // editView={editView}
         deleteView={deleteStudio}/>
     </div>
 
@@ -118,11 +118,11 @@ export default function StudioList() {
 
       {allStudios}
       <div className="container d-flex justify-content-between" style={{ position: "relative", paddingBottom: "20px" }}>
-        {(!isEdit) ?
+        {/* {(!isEdit) ?
           <StudioCreateForm addStudio={addStudio} />
           :
           <StudioEditForm key={currentStudio._id} studio={currentStudio} editStudio={editStudio} />
-        }
+        } */}
 
         <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{ position: "absolute", top: "20px", right: 0 }}>Next &rarr;</button>
       </div>

@@ -19,24 +19,24 @@ export default function SecurityList() {
     loadSecurity();
   }, []);
 
-  const editView = (id) => {
-    console.log(id)
-    Axios.get(`security/edit?id=${id}`)
-      .then(res => {
-        let Security = res.data
-        console.log("Loaded Security Information")
-        console.log(id)
-        console.log(res)
-        console.log(res.data)
-        console.log(res.data.security)
-        setIsEdit(true)
-        setCurrentSecurity(Security)
-      })
-      .catch(err => {
-        console.log("Error Loading Security Information")
-        console.log(err)
-      })
-  }
+  // const editView = (id) => {
+  //   console.log(id)
+  //   Axios.get(`security/edit?id=${id}`)
+  //     .then(res => {
+  //       let Security = res.data
+  //       console.log("Loaded Security Information")
+  //       console.log(id)
+  //       console.log(res)
+  //       console.log(res.data)
+  //       console.log(res.data.security)
+  //       setIsEdit(true)
+  //       setCurrentSecurity(Security)
+  //     })
+  //     .catch(err => {
+  //       console.log("Error Loading Security Information")
+  //       console.log(err)
+  //     })
+  // }
 
   const editSecurity = (security) => {
     Axios.put("security/update", security)
@@ -107,7 +107,7 @@ export default function SecurityList() {
       price={item.price}
       image={item.image}
       onBooked = {handleStecurityBooking}
-      editView={editView}
+      // editView={editView}
       deleteView={deleteSecurity}
     />
   ));
@@ -118,11 +118,11 @@ export default function SecurityList() {
               {allSecurity}
               <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
 
-              {(!isEdit) ?
+              {/* {(!isEdit) ?
           <SecurityCreateForm addSecurity={addSecurity} />
           :
           <SecurityEditForm key={currentSecurity._id} security={currentSecurity} editSecurity={editSecurity} />
-        }
+        } */}
   <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
 </div>
 
