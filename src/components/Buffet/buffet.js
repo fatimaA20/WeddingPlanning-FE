@@ -32,8 +32,11 @@ export default function Buffet(props) {
                   <ListGroup.Item>Type: {props.type}</ListGroup.Item>
                   <ListGroup.Item>Number of Guests: {props.noOfGuests}</ListGroup.Item>
                   <ListGroup.Item>Price: {props.price} BD</ListGroup.Item>
-                  <button onClick={() => { props.editView(props._id) }}>Edit</button>
-                <button onClick={() => props.deleteView(props._id)}>Delete</button>
+                  <div style={{ display: 'flex' }}>
+  <button type="button" class="btn btn-outline-dark btn-sm" style={{ display: 'flex', margin:"10px", width: "50%", fontSize: "1rem", textAlign:"center"}} onClick={() => { props.editView(props._id) }}>Edit</button>
+  <button type="button" class="btn btn-outline-dark btn-sm" style={{ display: 'flex', margin:"10px", width: "50%", fontSize: "1rem", textAlign:"center" }} onClick={() => props.deleteView(props._id)}>Delete</button>
+</div>
+
                 </ListGroup>
                 <Card.Body>
                   <Card.Text>

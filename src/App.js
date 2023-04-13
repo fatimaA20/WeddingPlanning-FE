@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Signup from './user/Signup';
 import Signin from './user/Signin';
 import Logout from './user/Logout';
+import Home from './components/Home';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route, Link , useNavigate} from 'react-router-dom';
@@ -162,7 +163,7 @@ function App() {
 
 
         <Routes>
-          <Route exact path="/" element={<DJList />} />
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/signup" element={<Signup register={registerHandler} />} />
           <Route exact path="/signin" element={<Signin login={loginHandler} />} />
           <Route exact path="/logout" element={<Logout logout={onLogoutHandler} />} />

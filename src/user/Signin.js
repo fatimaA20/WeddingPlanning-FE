@@ -30,7 +30,8 @@ export default function Signin(props) {
   return (
     <div>
       <br></br>
-      <h1>LOGIN</h1>
+      <br></br>
+      <h1 style={{marginLeft:"20px"}}>LOGIN </h1>
 
       <Container>
 
@@ -47,7 +48,7 @@ export default function Signin(props) {
 
 
   
-          <Button varient="primary" onClick={SignInHandler}> Login </Button>
+          <Button variant="outline-secondary" onClick={SignInHandler}> Login </Button>
       
       </Container>
     </div>
