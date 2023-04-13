@@ -101,20 +101,21 @@ export default function StudioList() {
   }
 
   const allStudios = studios.map((studio, index) => (
-    <tr key={index}>
+
+    <div key={index} style={{ float: "left" }}>
       <Studio {...studio}
         id={studio._id}
-        onBooked={handleStudioBooking}
-        editView={editView}
-        deleteView={deleteStudio} />
+        onBooked={handleStudioBooking} 
+                editView={editView}
+        deleteView={deleteStudio}/>
+    </div>
 
-
-    </tr>
   ));
 
   return (
-    <div>
+    <>
       <br></br>
+
       {allStudios}
       <div className="container d-flex justify-content-between" style={{ position: "relative", paddingBottom: "20px" }}>
         {(!isEdit) ?
@@ -127,6 +128,7 @@ export default function StudioList() {
       </div>
 
     </div>
+
   );
 }
 

@@ -19,7 +19,8 @@ export default function Signup(props) {
   return (
     <div>
         <br></br>
-        <h1>CREAT ACCOUNT </h1>
+        <br></br>
+        <h1 style={{marginLeft:"20px"}}>CREAT ACCOUNT </h1>
 
         <Container>
 
@@ -44,7 +45,7 @@ export default function Signup(props) {
             </Form.Group>
             <br></br>
 
-            <Button href="/home" varient="primary" onClick={registerHandler}> Register </Button>
+            <Button href="/home" variant="outline-secondary" onClick={registerHandler}> Register </Button>
 
         </Container>
     </div>

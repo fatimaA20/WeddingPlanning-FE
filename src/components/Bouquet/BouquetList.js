@@ -44,20 +44,20 @@ export default function BouquetList() {
     navigate(`/Booking`)
   }
   
-  const editView = (id) => {
-    Axios.get(`Bouquet/edit?id=${id}`)
-      .then(res => {
-        let bouquet = res.data.Bouquet
-        console.log("Loaded Bouquet Information")
-        console.log(id)
-        setIsEdit(true)
-        setCurrentBouquet(bouquet)
-      })
-      .catch(err => {
-        console.log("Error Loading Bouquet Information")
-        console.log(err)
-      })
-  }
+  // const editView = (id) => {
+  //   Axios.get(`Bouquet/edit?id=${id}`)
+  //     .then(res => {
+  //       let bouquet = res.data.Bouquet
+  //       console.log("Loaded Bouquet Information")
+  //       console.log(id)
+  //       setIsEdit(true)
+  //       setCurrentBouquet(bouquet)
+  //     })
+  //     .catch(err => {
+  //       console.log("Error Loading Bouquet Information")
+  //       console.log(err)
+  //     })
+  // }
 
   const editBouquet = (bouquet) => {
     Axios.put("Bouquet/update", bouquet)
@@ -97,11 +97,11 @@ export default function BouquetList() {
       })
   }
   const allBouquets = Bouquets.map((bouquet, index) => (
-    <div className="col-md-3 mb-3" key={index}>
+    <div className="col-md-3 mb-3" key={index} style={{float:'left', marginLeft:"20px"}}>
       <Bouquet
         {...bouquet}
         id = {bouquet._id}
-        editView={editView}
+        // editView={editView}
         deleteView={deleteBouquet}
         onBooked = {handleBouquetBooking}
 
@@ -118,7 +118,7 @@ export default function BouquetList() {
       <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
   <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
 </div>
-
+<br></br>
       {(!isEdit) ?
 
         <BouquetCreateForm addBouquet={addBouquet} />

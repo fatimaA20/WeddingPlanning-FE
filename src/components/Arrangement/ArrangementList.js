@@ -34,20 +34,20 @@ export default function ArrangementList() {
   }
 
 
-  const editView = (id) => {
-    Axios.get(`Arrangement/edit?id=${id}`)
-      .then(res => {
-        let arrangement = res.data.Arrangement
-        console.log("Loaded Arrangement Information")
-        console.log(id)
-        setIsEdit(true)
-        setCurrentArrangement(arrangement)
-      })
-      .catch(err => {
-        console.log("Error Loading Arrangement Information")
-        console.log(err)
-      })
-  }
+  // const editView = (id) => {
+  //   Axios.get(`Arrangement/edit?id=${id}`)
+  //     .then(res => {
+  //       let arrangement = res.data.Arrangement
+  //       console.log("Loaded Arrangement Information")
+  //       console.log(id)
+  //       setIsEdit(true)
+  //       setCurrentArrangement(arrangement)
+  //     })
+  //     .catch(err => {
+  //       console.log("Error Loading Arrangement Information")
+  //       console.log(err)
+  //     })
+  // }
 
   const editArrangement = (arrangement) => {
     Axios.put("Arrangement/update", arrangement)
@@ -99,10 +99,10 @@ export default function ArrangementList() {
 
 
   const allArrangements = Arrangements.map((arrangement, index) => (
-    <div className="col-md-3 mb-3" key={index}>
+    <div className="col-md-3 mb-3" key={index} style={{float:'left'}}>
       <Arrangement
         {...arrangement}
-        editView={editView}
+        // editView={editView}
         deleteView={deleteArrangement} // change this to deleteView
         onBooked={handleArrangementBooking}
         id = {arrangement._id}
@@ -114,18 +114,19 @@ export default function ArrangementList() {
 
   return (
     <div>
-      <div className="row">
-        <h1 className="text-center font-weight-bold" style={{ fontFamily: "Arial", color: "#200", marginTop: "50px" }}>Arrangement</h1>
-        <div className="row">
+      <br></br>
+      {/* <div className="row"> */}
+        {/* <h1 className="text-center font-weight-bold" style={{ fontFamily: "Arial", color: "#200", marginTop: "50px" }}>Arrangement</h1> */}
+        {/* <div className="row"> */}
           {allArrangements}
 
           <div className="container d-flex justify-content-between" style={{position: "relative",  paddingBottom: "20px"}}>
   <button type="button" className="btn btn-dark" onClick={handleNextClick} style={{position: "absolute", top: "20px", right: 0}}>Next &rarr;</button>
 </div>
     
-        </div>
-      </div>
-
+        {/* </div> */}
+      {/* </div> */}
+{/* 
 
      { (!isEdit) ?
 
@@ -133,7 +134,7 @@ export default function ArrangementList() {
       :
         <ArrangementEditForm key={currentArrangement._id} arrangement={currentArrangement} editArrangement={editArrangement} />
      
-     }
+     } */}
     </div>
   );
   
