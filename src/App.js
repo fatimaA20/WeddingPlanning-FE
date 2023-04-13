@@ -35,6 +35,7 @@ function App() {
       if (user) {
         setIsAuth(true)
         setUser(user)
+        console.log('user id = ' +user)
       }
       else if (!user) {
         localStorage.removeItem('token')

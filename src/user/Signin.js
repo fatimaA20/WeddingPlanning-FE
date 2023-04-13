@@ -22,6 +22,7 @@ export default function Signin(props) {
   const SignInHandler = () => {
     console.log(props.login(User))
     props.login(User)
+    navigate('/')
 
   };
 
