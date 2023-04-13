@@ -6,7 +6,7 @@ Installation
 Usage
 Technologies
 Contributing
-License
+
 
 
 ### Installation
@@ -34,5 +34,3 @@ Bootstrap
 ### Contributing
 Contributions are welcome! If you'd like to contribute, please fork the repository and create a pull request.
 
-### License
-This project is licensed under the MIT License.
