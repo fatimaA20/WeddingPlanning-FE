@@ -92,10 +92,10 @@ export default function () {
         console.log("Error Adding Hall")
         console.log(err)
       })
-    }
+  }
 
 
-  const handleNextClick = () =>{
+  const handleNextClick = () => {
     console.log(bookedHallId)
     navigate(`/Arrangement`)
   }
@@ -103,7 +103,7 @@ export default function () {
 
   const allHalls = Halls.map((hall, index) => (
     <div className="col-md-3 mb-3" key={index}>
-      <Hall style={{float: "left"}}
+      <Hall style={{ float: "left" }}
         id={hall._id}
         name={hall.name}
         size={hall.size}
@@ -123,13 +123,13 @@ export default function () {
       {allHalls}
       <br></br>
       <div className="container d-flex justify-content-between">
-               {(!isEdit) ?
+        {(!isEdit) ?
           <HallCreateForm addHall={addHall} />
           :
           <HallEditForm key={currentHall._id} hall={currentHall} editHall={editHall} />
         }
-             </div>
-        <button type="button" class="btn btn-dark" onClick={handleNextClick} >Next &rarr;</button>
+      </div>
+      <button type="button" class="btn btn-dark" onClick={handleNextClick} >Next &rarr;</button>
 
       {/* <button>next</button> */}
     </>
